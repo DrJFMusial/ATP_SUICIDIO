@@ -1,0 +1,98 @@
+% =============================================================================
+% preamble-a4.tex - base dos dois documentos A4 do docente
+% ATP "Risco de Suicidio: avaliacao e conduta" | E3M40 | Medicina | Campo Real
+%
+% Mesma paleta e mesma tipografia da prelecao, em corpo de texto corrido.
+% Compilar com LuaLaTeX.
+% =============================================================================
+\usepackage{fontspec}
+\IfFileExists{portuges.ldf}{\usepackage[brazil]{babel}}{\usepackage[english]{babel}}
+\usepackage[a4paper, top=2.3cm, bottom=2.2cm, left=2.5cm, right=2.5cm,
+            headsep=0.7cm, footskip=1.1cm]{geometry}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[most]{tcolorbox}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+
+% --- cores da serie ----------------------------------------------------------
+\definecolor{campoazul}{RGB}{0, 51, 102}
+\definecolor{campoamarelo}{RGB}{255, 215, 0}
+\definecolor{campoverde}{RGB}{27, 138, 90}
+\definecolor{campobordo}{RGB}{122, 0, 25}
+\definecolor{camporoxo}{RGB}{102, 45, 145}
+\definecolor{campoambar}{RGB}{191, 122, 0}
+\definecolor{campografite}{RGB}{58, 63, 69}
+
+% --- tipografia, as mesmas duas familias -------------------------------------
+\setmainfont{Libertinus Serif}[
+  UprightFont = LibertinusSerif-Regular, ItalicFont = LibertinusSerif-Italic,
+  BoldFont = LibertinusSerif-Bold, BoldItalicFont = LibertinusSerif-BoldItalic,
+  Extension = .otf ]
+\setsansfont{Roboto}[
+  UprightFont = Roboto-Regular, ItalicFont = Roboto-Italic,
+  BoldFont = Roboto-Bold, BoldItalicFont = Roboto-BoldItalic,
+  Extension = .ttf ]
+
+\linespread{1.06}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{2em}
+\widowpenalty=10000
+\clubpenalty=10000
+
+% --- titulos -----------------------------------------------------------------
+\titleformat{\section}{\sffamily\bfseries\Large\color{campoazul}}{}{0pt}{}
+  [\vspace{-0.45em}{\color{campoamarelo!85!black}\rule{\linewidth}{1.6pt}}]
+\titlespacing*{\section}{0pt}{0pt}{0.9em}
+
+\titleformat{\subsection}{\sffamily\bfseries\large\color{campoazul}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{1.5em}{0.45em}
+
+\titleformat{\subsubsection}{\sffamily\bfseries\normalsize\color{campobordo}}{}{0pt}{}
+\titlespacing*{\subsubsection}{0pt}{1.1em}{0.30em}
+
+% --- filete de secao ---------------------------------------------------------
+\newcommand{\filete}{%
+  \par\vspace{0.5em}{\color{campografite!30}\rule{\linewidth}{0.5pt}}\par
+  \vspace{0.2em}}
+
+% --- citacao literal ---------------------------------------------------------
+\newenvironment{fala}{%
+  \begin{tcolorbox}[enhanced, breakable=false, sharp corners=downhill, arc=2pt,
+    boxrule=0pt, leftrule=2.4pt, colframe=campoazul!70, colback=campoazul!5,
+    left=8pt, right=8pt, top=5pt, bottom=5pt, fontupper=\small\itshape]
+}{%
+  \end{tcolorbox}}
+
+% --- cabecalho e rodape ------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\sffamily\scriptsize\color{campografite}%
+  ATP Risco de suic\'idio \textbar{} E3M40}
+\fancyhead[R]{\sffamily\scriptsize\color{campografite}%
+  Medicina \textbar{} Campo Real}
+\fancyfoot[C]{\sffamily\scriptsize\color{campografite}\thepage}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{campoazul!35}\leaders\hrule height 0.4pt\hfill}}
+
+% --- links -------------------------------------------------------------------
+\hypersetup{colorlinks=true, linkcolor=campoazul, urlcolor=campoazul,
+  pdfauthor={Prof. Joao Frederico Musial}}
+
+% --- capa curta --------------------------------------------------------------
+\newcommand{\folharosto}[2]{%
+  \begin{center}
+    {\sffamily\scriptsize\bfseries\color{campobordo}%
+     ATP \textbar{} M\'ODULO E3M40 \textbar{} FUNCIONALIDADE III, COGNI\c{C}\~AO E HUMOR}\\[0.55em]
+    {\sffamily\bfseries\LARGE\color{campoazul}#1}\\[0.35em]
+    {\sffamily\large\color{campografite}#2}\\[0.8em]
+    {\color{campoamarelo!85!black}\rule{6cm}{1.6pt}}\\[0.8em]
+    {\sffamily\small\color{campoazul!85!black}\textbf{Prof. Jo\~ao Frederico Musial}}\\[0.15em]
+    {\sffamily\small\color{campografite}Medicina \textbar{} Campo Real \textbar{} 2026}
+  \end{center}
+  \vspace{1.1em}}

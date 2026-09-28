@@ -1,0 +1,65 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% beamercolorthemecamporeal.sty
+% Cores institucionais e paletas do Beamer, Centro Universitario Campo Real.
+%
+% Herdado da serie Campo Real, com DUAS correcoes deliberadas em relacao ao
+% arquivo que veio no projeto da fibromialgia, registradas aqui porque mudam a
+% leitura de todo o material:
+%
+%   1. campoazul estava em RGB(68,0,102), que e roxo, e voltou ao azul
+%      institucional RGB(0,51,102). O mapa de cor desta ATP reserva o azul para
+%      avaliacao e entrevista, e o roxo para farmacologia; com o valor anterior
+%      as duas familias colidiam.
+%   2. campografite estava em RGB(0,102,0), que e verde, e passou a cinza
+%      escuro real, RGB(58,63,69). O grafite carrega normativa, documento e
+%      registro; com o valor anterior confundia-se com o verde de suporte e
+%      continuidade.
+%
+% Preservados sem alteracao: campoamarelo, campoverde, campobordo, camporoxo.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<presentation>
+
+% --- CORES INSTITUCIONAIS ---------------------------------------------------
+\definecolor{campoazul}{RGB}{0, 51, 102}      % Azul institucional
+\definecolor{campoamarelo}{RGB}{255, 215, 0}  % Dourado institucional
+\definecolor{campoverde}{RGB}{27, 138, 90}    % Verde de suporte e continuidade
+\definecolor{campobordo}{RGB}{122, 0, 25}     % Vermelho queimado, acao imediata
+\definecolor{camporoxo}{RGB}{102, 45, 145}    % Roxo, farmacologia
+
+% --- CORES AUXILIARES -------------------------------------------------------
+\definecolor{campoambar}{RGB}{191, 122, 0}    % Ambar, mudanca recente
+\definecolor{campografite}{RGB}{58, 63, 69}   % Grafite, norma e registro
+\definecolor{campoclaro}{RGB}{247, 247, 247}  % Fundo claro
+
+% --- PALETA BEAMER ----------------------------------------------------------
+\setbeamercolor{palette primary}{bg=campoazul, fg=white}
+\setbeamercolor{palette secondary}{bg=campoamarelo!85, fg=black}
+\setbeamercolor{palette tertiary}{bg=campoazul!90, fg=white}
+\setbeamercolor{palette quaternary}{bg=campoazul!40, fg=white}
+
+% --- TITULO DO FRAME --------------------------------------------------------
+\setbeamercolor{frametitle}{bg=campoazul, fg=white}
+\setbeamercolor{framesubtitle}{bg=campoazul, fg=white}
+
+% --- CORPO ------------------------------------------------------------------
+\setbeamercolor{structure}{fg=campoazul}
+\setbeamercolor{normal text}{bg=white, fg=black}
+\setbeamercolor{alerted text}{fg=campobordo}
+
+% --- BLOCOS PADRAO ----------------------------------------------------------
+\setbeamercolor{block title}{bg=campoazul!88, fg=white}
+\setbeamercolor{block body}{bg=campoazul!8, fg=black}
+\setbeamercolor{block title alerted}{bg=campobordo, fg=white}
+\setbeamercolor{block body alerted}{bg=campobordo!7, fg=black}
+\setbeamercolor{block title example}{bg=campoverde, fg=white}
+\setbeamercolor{block body example}{bg=campoverde!8, fg=black}
+
+% --- OUTROS ELEMENTOS -------------------------------------------------------
+\setbeamercolor{title}{fg=campoazul, bg=white}
+\setbeamercolor{author}{fg=campoazul!80!black, bg=white}
+\setbeamercolor{institute}{fg=campografite, bg=white}
+\setbeamercolor{date}{fg=campografite, bg=white}
+\setbeamercolor{item}{fg=campoazul}
+\setbeamercolor{caption name}{fg=campografite}
+
+\mode<all>

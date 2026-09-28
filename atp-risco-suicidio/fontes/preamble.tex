@@ -1,0 +1,148 @@
+% =============================================================================
+% preamble.tex
+% ATP "Risco de Suicidio: avaliacao e conduta"
+% Modulo E3M40, Funcionalidade III, Cognicao e Humor
+% Medicina | Centro Universitario Campo Real | 2026
+% Prof. Joao Frederico Musial
+%
+% Compilar com LuaLaTeX, duas passadas.
+% =============================================================================
+
+% --- Tema e cores institucionais --------------------------------------------
+\usetheme{Madrid}
+\makeatletter\input{tema/beamercolorthemecamporeal.sty}\makeatother
+\setbeamertemplate{navigation symbols}{}
+
+% --- Pacotes essenciais -----------------------------------------------------
+\usepackage{fontspec}
+\IfFileExists{portuges.ldf}{\usepackage[brazil]{babel}}{\usepackage[english]{babel}}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{xfp}
+
+% --- Icones -----------------------------------------------------------------
+\usepackage{fontawesome5}
+
+% --- Layout e tabelas -------------------------------------------------------
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multicol}
+
+% --- Caixas e diagramas -----------------------------------------------------
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta, positioning, calc, fit, shapes.geometric,
+                shapes.misc, shapes.symbols, matrix, backgrounds, chains,
+                decorations.pathreplacing, patterns, shadows.blur}
+
+% --- Acabamento editorial ----------------------------------------------------
+% Regra da serie: o arredondamento e a sombra dos blocos vivem AQUI, no
+% preambulo, e nunca em tema/boxes.tex.
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% --- Tipografia --------------------------------------------------------------
+% Duas familias, nenhuma terceira. Libertinus Serif no corpo, Roboto nos
+% titulos curtos e nos marcadores. FontAwesome5 entra como icone, nao como
+% familia de texto.
+\setmainfont{Libertinus Serif}[
+  UprightFont = LibertinusSerif-Regular,
+  ItalicFont  = LibertinusSerif-Italic,
+  BoldFont    = LibertinusSerif-Bold,
+  BoldItalicFont = LibertinusSerif-BoldItalic,
+  Extension = .otf ]
+\setsansfont{Roboto}[
+  UprightFont = Roboto-Regular,
+  ItalicFont  = Roboto-Italic,
+  BoldFont    = Roboto-Bold,
+  BoldItalicFont = Roboto-BoldItalic,
+  Extension = .ttf ]
+\usefonttheme{serif}
+\setbeamerfont{frametitle}{family=\sffamily, size=\large, series=\bfseries}
+\setbeamerfont{framesubtitle}{family=\sffamily, size=\footnotesize}
+\setbeamerfont{block title}{family=\sffamily, size=\small, series=\bfseries}
+\setbeamerfont{block body}{size=\small}
+\setbeamerfont{title}{family=\sffamily, series=\bfseries}
+\setbeamerfont{author}{family=\sffamily}
+\setbeamerfont{institute}{family=\sffamily}
+\setbeamerfont{date}{family=\sffamily}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setlength{\parskip}{0pt}
+
+% --- Margens internas do slide ----------------------------------------------
+\setbeamersize{text margin left=0.45cm, text margin right=0.45cm}
+
+% =============================================================================
+% \CRar{k} : o botao unico de ar vertical do frame.
+% -----------------------------------------------------------------------------
+% k e adimensional. k = 0 e o piso em que nada estoura. De k derivam, de uma
+% so vez, a distancia entre caixas, o respiro interno, a entrelinha do corpo,
+% a separacao de itens de lista e a altura de linha de tabela. Como o frame do
+% Beamer e um grupo TeX, cada frame escreve o seu proprio k em UMA linha, no
+% proprio arquivo. Nunca aplicar o mesmo incremento a todas as paginas: a folga
+% varia de pagina para pagina.
+% =============================================================================
+\newlength{\CRgapbox}      % distancia entre caixas
+\newlength{\CRitemsep}     % separacao entre itens de lista
+\newlength{\CRestica}      % meia altura da regua invisivel das tabelas
+\newlength{\CRcolentidade} % largura fixa da primeira coluna de tabela
+\setlength{\CRcolentidade}{2.55cm}
+
+\newcommand{\CRar}[1]{%
+  \setlength{\CRgapbox}{\fpeval{0.12 + 0.115*(#1)}cm}%
+  \setlength{\CRitemsep}{\fpeval{0.15 + 0.28*(#1)}ex}%
+  \setlength{\CRestica}{\fpeval{0.55 + 0.30*(#1)}ex}%
+  \renewcommand{\baselinestretch}{\fpeval{1.00 + 0.030*(#1)}}%
+  \selectfont
+}
+\CRar{0}
+
+% Espaco vertical entre caixas, sempre pelo botao.
+\newcommand{\CRvg}{\vspace{\CRgapbox}}
+
+% --- Camadas do tema ---------------------------------------------------------
+\input{tema/boxes.tex}
+\input{tema/tikz.tex}
+
+% --- Links -------------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = campoazul,
+  urlcolor   = campoazul,
+  citecolor  = campoazul,
+  pdftitle   = {Risco de suicidio: avaliacao e conduta},
+  pdfauthor  = {Prof. Joao Frederico Musial},
+  pdfsubject = {ATP E3M40 - Medicina - Centro Universitario Campo Real - 2026}
+}
+
+% --- Fundo -------------------------------------------------------------------
+% A marca d'agua so entra quando o arquivo existe E quando o build nao pediu
+% medicao. Os instrumentos rodam sobre um build SEM fundo: a aquarela e lida
+% como tinta pelo medidor e a barra de rodape, desenhada depois do conteudo,
+% esconde o transbordo. Para o build de medicao:
+%     lualatex "\def\CRsemfundo{}\input{main.tex}"
+% e para o build de entrega, lualatex main.tex, como sempre.
+\ifdefined\CRsemfundo
+  \relax
+\else
+  \IfFileExists{ilustracoes/BACKGROUND.jpg}{%
+    \usebackgroundtemplate{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{ilustracoes/BACKGROUND.jpg}}%
+  }{}
+\fi
+
+% --- Identificacao da apresentacao -------------------------------------------
+\title[Risco de suic\'idio]{Risco de suic\'idio}
+\subtitle{Avalia\c{c}\~ao e conduta}
+\author[Prof. J. F. Musial]{Prof. Jo\~ao Frederico Musial}
+\institute[Medicina | Campo Real]{Medicina | Campo Real}
+\date[E3M40]{M\'odulo E3M40 \textbar{} 2026}

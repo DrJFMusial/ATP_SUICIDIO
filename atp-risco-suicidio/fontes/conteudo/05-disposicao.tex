@@ -1,0 +1,210 @@
+% =============================================================================
+% 05-disposicao.tex - PARTE 5, ele pode sair daqui? Frames 30 a 35.
+% Detalhe operacional na fala e no handout. Na tela, o que decide.
+% =============================================================================
+
+% ----------------------------------------------------------------- frame 30 --
+\begin{frame}{\ftit{\faQuestion}{O fluxo, comandado por uma pergunta}}
+\CRar{6}
+\begin{center}
+\begin{tikzpicture}[node distance=0.30cm]
+  \node[musialBlue, text width=7.6cm, font=\scriptsize, inner ysep=6pt] (q)
+    {\sffamily\bfseries \'E poss\'ivel construir seguran\c{c}a suficiente fora de
+     um ambiente protegido neste momento?};
+
+  \node[crnode={campoverde}{4.25cm}, font=\scriptsize, inner ysep=4pt,
+        below left=0.62cm and -0.2cm of q.south] (sim)
+    {\textbf{Sim}\\[1pt] restri\c{c}\~ao de acesso pactuada, plano de
+     seguran\c{c}a escrito, rede acionada, seguimento com data e contato ativo};
+  \node[crnode={campobordo}{4.25cm}, font=\scriptsize, inner ysep=4pt,
+        below right=0.62cm and -0.2cm of q.south] (nao)
+    {\textbf{N\~ao}\\[1pt] perman\^encia em ambiente protegido, laudo
+     circunstanciado, modalidade definida pelo consentimento, seguran\c{c}a
+     ambiental at\'e a vaga};
+
+  \draw[crseta=campoverde] (q.south) -- ++(0,-0.28) -| (sim.north);
+  \draw[crseta=campobordo] (q.south) -- ++(0,-0.28) -| (nao.north);
+
+  \coordinate (baixo) at ($(sim.south)!0.5!(nao.south)$);
+  \node[crnode={campoambar}{9.2cm}, font=\scriptsize, inner ysep=4pt,
+        below=0.55cm of baixo] (re)
+    {Em qualquer das duas sa\'idas: reavaliar. A resposta vale para este momento,
+     e n\~ao para a semana.};
+  \draw[musialThin] (sim.south) |- ($(re.north)+(0,0.26)$) -- (re.north);
+  \draw[musialThin] (nao.south) |- ($(re.north)+(0,0.26)$) -- (re.north);
+\end{tikzpicture}
+\end{center}
+
+\mensagem{N\~ao existe uma terceira sa\'ida chamada orientado e liberado.}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 31 --
+\begin{frame}{\ftit{\faAmbulance}{Quando remover}}
+\CRar{1.6}
+\begin{columns}[onlytextwidth, t]
+\begin{column}{0.47\textwidth}
+\begin{caixaagir}{Remover para servi\c{c}o com retaguarda}
+\begin{itemc}
+\item risco cl\'inico da tentativa em curso
+\item intoxica\c{c}\~ao que a unidade n\~ao sustenta
+\item agita\c{c}\~ao ou psicose sem condi\c{c}\~oes de manejo local
+\item necessidade de ambiente protegido sem leito na unidade
+\end{itemc}
+\end{caixaagir}
+\end{column}
+\calha
+\begin{column}{0.47\textwidth}
+\begin{caixaproteger}{Antes de a ambul\^ancia chegar}
+\begin{itemc}
+\item acompanhante definido
+\item seguran\c{c}a ambiental no intervalo
+\item o que j\'a foi feito, escrito
+\item quem recebe do outro lado, avisado
+\end{itemc}
+\end{caixaproteger}
+\end{column}
+\end{columns}
+
+\CRvg
+\begin{caixaagir}{Enquanto espera}
+O intervalo entre a decis\~ao e a remo\c{c}\~ao \'e parte da conduta, e n\~ao
+uma pausa administrativa. Paciente em espera de vaga continua sob
+observa\c{c}\~ao e continua sendo reavaliado.
+\end{caixaagir}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 32 --
+% Sequencia fixa e LITERAL na tela.
+\begin{frame}{\ftit{\faPhoneVolume}{O que informar \`a regula\c{c}\~ao}}
+\CRar{6}
+\begin{center}
+\begin{tikzpicture}[node distance=0.13cm]
+  \node[crnode={campoazul}{8.9cm}, font=\scriptsize, inner ysep=2.6pt] (a)
+    {\textbf{1.} quem \'e o paciente: nome, idade, de onde est\'a falando};
+  \node[crnode={campoazul}{8.9cm}, font=\scriptsize, inner ysep=2.6pt, below=of a] (b)
+    {\textbf{2.} o que aconteceu: o motivo do atendimento, em uma frase};
+  \node[crnode={campoazul}{8.9cm}, font=\scriptsize, inner ysep=2.6pt, below=of b] (c)
+    {\textbf{3.} estado mental atual};
+  \node[crnode={campoazul}{8.9cm}, font=\scriptsize, inner ysep=2.6pt, below=of c] (d)
+    {\textbf{4.} suicidalidade atual: idea\c{c}\~ao, inten\c{c}\~ao, plano, acesso};
+  \node[crnode={campoambar}{8.9cm}, font=\scriptsize, inner ysep=2.6pt, below=of d] (e)
+    {\textbf{5.} comportamentos recentes e o que mudou nas \'ultimas horas};
+  \node[crnode={campoambar}{8.9cm}, font=\scriptsize, inner ysep=2.6pt, below=of e] (f)
+    {\textbf{6.} intoxica\c{c}\~ao, agita\c{c}\~ao ou psicose};
+  \node[crnode={campoverde}{8.9cm}, font=\scriptsize, inner ysep=2.6pt, below=of f] (g)
+    {\textbf{7.} condutas j\'a realizadas neste atendimento};
+  \node[crnode={campobordo}{8.9cm}, font=\scriptsize, inner ysep=2.6pt, below=of g] (h)
+    {\textbf{8.} por que o ambiente atual n\~ao \'e suficiente};
+\end{tikzpicture}
+\end{center}
+
+\mensagem{A oitava \'e a que decide a vaga. Diga-a nesta ordem e n\~ao come\c{c}e
+por ela.}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 33 --
+% Segunda tabela autorizada: as tres modalidades de internacao.
+\begin{frame}{\ftit{\faHospital}{As tr\^es modalidades de interna\c{c}\~ao}}
+\CRar{0}
+\begin{CRtabela}
+\scriptsize
+\begin{center}
+\begin{tabular}{P{2.30cm} P{2.75cm} P{2.90cm} P{2.60cm}}
+\toprule
+\rowcolor{campografite!12}
+& \textbf{Volunt\'aria} & \textbf{Involunt\'aria} & \textbf{Compuls\'oria} \\
+\midrule
+quem solicita & o pr\'oprio usu\'ario & terceiro & decis\~ao judicial \\
+quem autoriza & m\'edico com CRM & m\'edico com CRM & o ju\'iz determina \\
+qual documento & termo assinado na admiss\~ao & laudo e formul\'ario &
+decis\~ao judicial \\
+comunica a quem & n\~ao se aplica & Minist\'erio P\'ublico Estadual & conforme a
+decis\~ao \\
+em que prazo & n\~ao se aplica & 72 horas, pelo respons\'avel t\'ecnico &
+conforme a decis\~ao \\
+como termina & a pedido do usu\'ario & a pedido do familiar ou do especialista
+respons\'avel & por decis\~ao judicial \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{CRtabela}
+
+\begin{caixanorma}{Vale para as tr\^es}
+Toda interna\c{c}\~ao exige \norma{laudo circunstanciado}, a
+comunica\c{c}\~ao ao Minist\'erio P\'ublico \norma{se repete na alta}, e a
+\agir{compuls\'oria \'e judicial, n\~ao \'e a via da urg\^encia}.
+\end{caixanorma}
+
+\fonte{Lei 10.216/2001, arts. 6 a 9; Portaria GM\slash MS 2.391/2002;
+Resolu\c{c}\~ao CFM 2.057/2013. \selonorma}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 34 --
+\begin{frame}{\ftit{\faHandPaper}{Conten\c{c}\~ao}}
+\CRar{4.6}
+\begin{caixanorma}{Medida excepcional de seguran\c{c}a}
+A conten\c{c}\~ao \'e admiss\'ivel quando \'e o meio mais adequado para prevenir
+dano imediato ou iminente. N\~ao \'e puni\c{c}\~ao, n\~ao \'e rotina de
+admiss\~ao e n\~ao substitui vigil\^ancia.
+\end{caixanorma}
+
+\CRvg
+\begin{center}
+\begin{tikzpicture}[node distance=0.24cm]
+  \node[crnode={campografite}{2.05cm}, font=\scriptsize, minimum height=0.90cm] (a)
+    {indica\c{c}\~ao registrada};
+  \node[crnode={campografite}{2.05cm}, font=\scriptsize, minimum height=0.90cm,
+        right=of a] (b) {prescri\c{c}\~ao m\'edica};
+  \node[crnode={campografite}{2.05cm}, font=\scriptsize, minimum height=0.90cm,
+        right=of b] (c) {monitoriza\c{c}\~ao cont\'inua};
+  \node[crnode={campografite}{2.05cm}, font=\scriptsize, minimum height=0.90cm,
+        right=of c] (d) {registro em prontu\'ario};
+  \draw[crseta=campografite] (a.east) -- (b.west);
+  \draw[crseta=campografite] (b.east) -- (c.west);
+  \draw[crseta=campografite] (c.east) -- (d.west);
+\end{tikzpicture}
+\end{center}
+
+\CRvg
+\begin{caixaagir}{Reavalia\c{c}\~ao}
+Conten\c{c}\~ao tem in\'icio, tem revis\~ao em intervalo curto e tem fim
+escrito. Conten\c{c}\~ao sem hora de t\'ermino no prontu\'ario \'e
+conten\c{c}\~ao indefinida.
+\end{caixaagir}
+
+\fonte{Resolu\c{c}\~ao CFM 2.057/2013, art. 16. \selonorma}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 35 --
+\begin{frame}{\ftit{\faLock}{Sigilo}}
+\CRar{2.5}
+\begin{caixanorma}{Sigilo n\~ao \'e sil\^encio absoluto}
+Diante de risco relevante \`a vida, a comunica\c{c}\~ao a quem pode proteger \'e
+leg\'itima. Ela \'e \norma{proporcional \`a necessidade de prote\c{c}\~ao}: diz o
+necess\'ario, a quem pode agir, e n\~ao mais do que isso.
+\end{caixanorma}
+
+\CRvg
+\begin{columns}[onlytextwidth, t]
+\begin{column}{0.47\textwidth}
+\begin{caixaproteger}{Como se faz}
+\begin{itemc}
+\item buscar o consentimento primeiro, e insistir nele
+\item dizer ao paciente o que ser\'a dito e a quem
+\item informar o necess\'ario para proteger, n\~ao o conte\'udo inteiro
+\item registrar a justificativa
+\end{itemc}
+\end{caixaproteger}
+\end{column}
+\calha
+\begin{column}{0.47\textwidth}
+\begin{caixanorma}{Deveres espec\'ificos}
+\begin{itemc}
+\item crian\c{c}a e adolescente: respons\'avel e Conselho Tutelar quando couber
+\item pessoa idosa em situa\c{c}\~ao de viol\^encia ou neglig\^encia: prote\c{c}\~ao devida
+\item nunca prometer sigilo absoluto antes de saber o que ser\'a contado
+\end{itemc}
+\end{caixanorma}
+\end{column}
+\end{columns}
+\end{frame}

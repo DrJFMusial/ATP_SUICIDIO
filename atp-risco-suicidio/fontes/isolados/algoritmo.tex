@@ -1,0 +1,19 @@
+% !TEX TS-program = lualatex
+% PDF isolado do algoritmo clinico final. Uma pagina, sem rodape de aula,
+% para levar no celular ou no bolso do jaleco.
+% O frame e o MESMO da prelecao: conteudo/07a-algoritmo.tex.
+\PassOptionsToPackage{table}{xcolor}
+\documentclass[aspectratio=43, handout]{beamer}
+\input{preamble.tex}
+\setbeamertemplate{footline}{\vspace*{0.40cm}}
+\setbeamertemplate{frametitle}{%
+  \vspace{0.16cm}\hspace{0.45cm}%
+  {\sffamily\bfseries\large\color{campoazul}\insertframetitle}%
+  \par\vspace{0.10cm}\hspace{0.45cm}%
+  {\color{campoamarelo!85!black}\rule{11.9cm}{1.3pt}}\par\vspace{-0.10cm}}
+\setbeamercolor{frametitle}{bg=white, fg=campoazul}
+\usebackgroundtemplate{}
+
+\begin{document}
+\input{conteudo/07a-algoritmo.tex}
+\end{document}

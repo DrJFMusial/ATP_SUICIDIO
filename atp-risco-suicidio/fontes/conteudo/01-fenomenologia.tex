@@ -1,0 +1,215 @@
+% =============================================================================
+% 01-fenomenologia.tex - PARTE 1, o que estamos tentando entender.
+% Frames 04 a 08.
+% =============================================================================
+
+% ----------------------------------------------------------------- frame 04 --
+% Primeiro frame de conteudo. Declara o recorte em uma linha e traz o mapa
+% fenomenologico NAO linear, com relacoes bidirecionais.
+\begin{frame}{\ftit{\faSitemap}{O que estamos tentando entender}}
+\CRar{2.5}
+{\footnotesize\sffamily\color{campografite}%
+A prele\c{c}\~ao paralela do m\'odulo cobre o diagn\'ostico do epis\'odio
+depressivo; esta ATP cobre a conduta e trata a suicidalidade como fen\^omeno
+transdiagn\'ostico.\par}
+
+\CRvg
+\begin{center}
+\begin{tikzpicture}[node distance=0.42cm and 0.60cm]
+  \node[crnode={campoazul}{2.30cm}, font=\scriptsize]                 (pass) {idea\c{c}\~ao\\passiva};
+  \node[crnode={campoazul}{2.30cm}, font=\scriptsize, right=of pass]  (ativ) {idea\c{c}\~ao\\ativa};
+  \node[crnode={campoazul}{2.30cm}, font=\scriptsize, right=of ativ]  (inte) {inten\c{c}\~ao};
+  \node[crnode={campoambar}{2.30cm}, font=\scriptsize, below=0.72cm of pass] (plan) {planejamento};
+  \node[crnode={campoambar}{2.30cm}, font=\scriptsize, right=of plan] (prep) {comportamento\\preparat\'orio};
+  \node[crnode={campobordo}{2.30cm}, font=\scriptsize, right=of prep] (tent) {tentativa};
+
+  \draw[musialBi] (pass.east) -- (ativ.west);
+  \draw[musialBi] (ativ.east) -- (inte.west);
+  \draw[musialBi] (plan.east) -- (prep.west);
+  \draw[musialBi] (prep.east) -- (tent.west);
+  \draw[musialBi] (inte.south) -- (prep.north);
+  \draw[musialBi] (ativ.south) -- (plan.north);
+  \draw[musialBi, campobordo!80!black] (tent.north) to[out=60,in=0,looseness=1.5] (inte.east);
+  \draw[musialBi] (plan.west) to[out=180,in=180,looseness=1.3] (pass.west);
+
+  \node[crnode={campografite}{3.05cm}, font=\scriptsize, below=0.62cm of prep]
+    (auto) {autoles\~ao sem inten\c{c}\~ao suicida\\[1pt]\scriptsize eixo paralelo};
+  \draw[musialThin, dash pattern=on 2.4pt off 2pt] (auto.north) -- (prep.south);
+\end{tikzpicture}
+\end{center}
+
+\mensagem{Esses fen\^omenos se relacionam nos dois sentidos. N\~ao s\~ao uma
+escada obrigat\'oria.}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 05 --
+% A pirâmide de progressao como objeto de critica, e o eixo paralelo da autolesao.
+\begin{frame}{\ftit{\faBan}{Duas leituras que atrapalham}}
+\CRar{6}
+\begin{columns}[onlytextwidth, t]
+\begin{column}{0.47\textwidth}
+\begin{caixaagir}{A escada que n\~ao existe}
+Ningu\'em precisa passar por todos os degraus, na ordem, para chegar \`a
+tentativa. Uma parte das tentativas ocorre em quem nunca planejou, e uma parte
+de quem planeja durante anos nunca tenta.\par
+\agir{Consequ\^encia:} a aus\^encia de um degrau anterior n\~ao tranquiliza.
+\end{caixaagir}
+\end{column}
+\calha
+\begin{column}{0.47\textwidth}
+\begin{caixaavaliar}{A autoles\~ao no eixo ao lado}
+A autoles\~ao sem inten\c{c}\~ao suicida tem fun\c{c}\~ao de regula\c{c}\~ao do
+sofrimento, e n\~ao de morte. N\~ao \'e tentativa.\par
+\avaliar{E ainda assim} \'e um dos marcadores mais consistentes de risco
+futuro. As duas coisas s\~ao verdadeiras ao mesmo tempo.
+\end{caixaavaliar}
+\end{column}
+\end{columns}
+
+\CRvg
+\begin{center}
+\begin{tikzpicture}
+  \node[crnode={campografite}{9.6cm}, font=\scriptsize] {%
+    Dizer \fala{ele s\'o tem idea\c{c}\~ao passiva} e encerrar a\'i \'e usar um
+    degrau como se fosse um progn\'ostico.};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 06 --
+% Magnitude e tendencia. pgfplots. Apenas os dois pontos documentados.
+\begin{frame}{\ftit{\faChartLine}{Magnitude e tend\^encia no Brasil}}
+\CRar{4.6}
+\begin{columns}[onlytextwidth, T]
+\begin{column}{0.50\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width=5.4cm, height=4.2cm,
+  ymin=0, ymax=9, xmin=2008.6, xmax=2022.4,
+  xtick={2010,2021}, xticklabels={2010,2021},
+  ytick={0,2,4,6,8},
+  ylabel={\scriptsize \'obitos por 100 mil},
+  y label style={font=\scriptsize, color=campografite},
+  tick label style={font=\scriptsize, color=campografite},
+  axis line style={campografite!55},
+  grid=major, grid style={campografite!14, line width=0.3pt},
+  every axis plot/.append style={line width=1.1pt}]
+  \addplot[campoazul!85!black, mark=*, mark size=2.3pt,
+           mark options={fill=campoazul!25, draw=campoazul!85!black}]
+    coordinates {(2010,5.2) (2021,7.5)};
+  \node[font=\scriptsize\sffamily, color=campoazul!85!black, anchor=south east]
+    at (axis cs:2010,5.2) {5,2};
+  \node[font=\scriptsize\sffamily, color=campoazul!85!black, anchor=south east]
+    at (axis cs:2021,7.5) {7,5};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+{\scriptsize\sffamily\color{campografite}\hspace{0.3cm}Dois pontos documentados.
+A s\'erie intermedi\'aria n\~ao foi reconstru\'ida.\par}
+\end{column}
+\calha
+\begin{column}{0.44\textwidth}
+\begin{caixaavaliar}{2021, no Brasil}
+\begin{itemc}
+\item \avaliar{15.507} mortes por suic\'idio
+\item \avaliar{114.159} notifica\c{c}\~oes de les\~ao autoprovocada
+\item taxa de \avaliar{7,5} por 100 mil, \mudanca{42\% acima} da taxa de 2010
+\end{itemc}
+\end{caixaavaliar}
+\CRvg
+\begin{caixamudanca}{O que essa raz\~ao diz}
+Para cada morte registrada h\'a cerca de sete notifica\c{c}\~oes de les\~ao
+autoprovocada. Essas pessoas passam pelo servi\c{c}o.
+\end{caixamudanca}
+\end{column}
+\end{columns}
+\fonte{Minist\'erio da Sa\'ude, Boletim Epidemiol\'ogico v.\,55, n.\,4, 2024,
+com dados do SIM e do SINAN.}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 07 --
+% Faixas etarias e sexo. Barras agrupadas, dado numericamente publicado.
+\begin{frame}{\ftit{\faUsers}{Quem morre, por faixa et\'aria e sexo}}
+\CRar{6}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width=10.6cm, height=5.0cm,
+  ybar=1.4pt, bar width=8.5pt,
+  ymin=0, ymax=23, ytick={0,5,10,15,20},
+  symbolic x coords={5 a 14,15 a 19,20 a 29,30 a 49,50 a 69,70 ou mais},
+  xtick=data,
+  ylabel={\scriptsize \'obitos por 100 mil, 2021},
+  y label style={font=\scriptsize, color=campografite},
+  tick label style={font=\scriptsize, color=campografite},
+  axis line style={campografite!55},
+  ymajorgrids, grid style={campografite!14, line width=0.3pt},
+  legend style={font=\scriptsize\sffamily, draw=campografite!35, at={(0.015,0.98)},
+                anchor=north west, legend columns=2, column sep=5pt},
+  nodes near coords, nodes near coords style={font=\tiny\sffamily,
+                                             color=campografite},
+  every node near coord/.append style={/pgf/number format/.cd, fixed,
+                                       precision=1, use comma}]
+  \addplot[draw=campoazul!85!black, fill=campoazul!30,
+           every node near coord/.append style={/tikz/.cd, yshift=5.5pt, xshift=-2.6pt}]
+    coordinates {(5 a 14,0.7) (15 a 19,9.3) (20 a 29,14.6) (30 a 49,14.9)
+                 (50 a 69,15.4) (70 ou mais,18.1)};
+  \addplot[draw=camporoxo!80!black, fill=camporoxo!22,
+           every node near coord/.append style={/tikz/.cd, xshift=2.6pt}]
+    coordinates {(5 a 14,0.9) (15 a 19,4.5) (20 a 29,3.9) (30 a 49,3.8)
+                 (50 a 69,3.8) (70 ou mais,2.9)};
+  \legend{homens, mulheres}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\mensagem{A taxa mais alta est\'a nos homens com 70 anos ou mais. \'E a faixa que
+o servi\c{c}o menos pergunta.}
+\fonte{Minist\'erio da Sa\'ude, Boletim Epidemiol\'ogico v.\,55, n.\,4, 2024.}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 08 --
+% Contato previo com servicos. O argumento que sustenta toda a aula.
+\begin{frame}{\ftit{\faUserMd}{Eles passam por n\'os antes}}
+\CRar{6}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width=9.55cm, height=4.10cm,
+  xbar, bar width=11pt,
+  xmin=0, xmax=100,
+  symbolic y coords={smm, apm, sma, apa},
+  ytick=data,
+  yticklabels={{sa\'ude mental, no m\^es},
+               {aten\c{c}\~ao prim\'aria, no m\^es},
+               {sa\'ude mental, no ano},
+               {aten\c{c}\~ao prim\'aria, no ano}},
+  yticklabel style={font=\scriptsize, color=campografite, align=right},
+  xlabel={\scriptsize \% das pessoas que morreram por suic\'idio},
+  x label style={font=\scriptsize, color=campografite},
+  tick label style={font=\scriptsize, color=campografite},
+  axis line style={campografite!55},
+  enlarge y limits=0.20,
+  xmajorgrids, grid style={campografite!14, line width=0.3pt},
+  nodes near coords, nodes near coords style={font=\tiny\sffamily,
+                                              color=campografite, anchor=west,
+                                              xshift=1.5pt},
+  point meta=explicit symbolic]
+  \addplot[draw=campoazul!85!black, fill=campoazul!30]
+    coordinates {(20,smm)[20\%] (45,apm)[45\%]
+                 (33,sma)[33\%] (75,apa)[75\%]};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{caixaavaliar}{O que isso obriga}
+A pessoa que morre por suic\'idio costuma ter estado diante de um m\'edico pouco
+antes, e quase sempre de um m\'edico que n\~ao era psiquiatra. Em idosos, o
+contato com a aten\c{c}\~ao prim\'aria no m\^es anterior \'e ainda mais
+frequente do que em adultos jovens.
+\end{caixaavaliar}
+
+\fonte{Luoma, Martin e Pearson, \emph{Am J Psychiatry} 2002, revis\~ao de 40
+estudos. \seloevidencia}
+\end{frame}

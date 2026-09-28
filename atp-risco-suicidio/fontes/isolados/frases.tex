@@ -1,0 +1,25 @@
+% !TEX TS-program = lualatex
+% PDF isolado do quadro de frases que nao encerram decisao clinica. Uma pagina, sem rodape de aula,
+% para levar no celular ou no bolso do jaleco.
+% O frame e o MESMO da prelecao: conteudo/07b-frases.tex.
+\PassOptionsToPackage{table}{xcolor}
+\documentclass[aspectratio=43, handout]{beamer}
+\input{preamble.tex}
+\setbeamertemplate{footline}{\vspace*{0.40cm}}
+\setbeamertemplate{frametitle}{%
+  \vspace{0.16cm}\hspace{0.45cm}%
+  {\sffamily\bfseries\large\color{campoazul}\insertframetitle}%
+  \par\vspace{0.10cm}\hspace{0.45cm}%
+  {\color{campoamarelo!85!black}\rule{11.9cm}{1.3pt}}\par\vspace{-0.10cm}}
+\setbeamercolor{frametitle}{bg=white, fg=campoazul}
+\usebackgroundtemplate{}
+
+% O frame isolado tem geometria diferente da aula: sem rodape de tema, sobra
+% menos altura util. O k da tabela e reduzido aqui, sem tocar no arquivo
+% compartilhado com a prelecao.
+\AtBeginDocument{\renewcommand{\CRar}[1]{%
+  \setlength{\CRgapbox}{0.12cm}\setlength{\CRitemsep}{0.15ex}%
+  \setlength{\CRestica}{0.42ex}\renewcommand{\baselinestretch}{1.0}\selectfont}}
+\begin{document}
+\input{conteudo/07b-frases.tex}
+\end{document}

@@ -1,0 +1,74 @@
+% =============================================================================
+% 08-atividade.tex - Transicao para a atividade. Frames 41 e 42.
+% Estes dois nao contam na prelecao. Sao os 2 frames dos 10 minutos de
+% explicacao, das 14h55 as 15h05.
+% =============================================================================
+
+% ----------------------------------------------------------------- frame 41 --
+\begin{frame}{\ftit{\faUserFriends}{O desafio}}
+\CRar{3.3}
+\begin{center}
+\begin{tikzpicture}[node distance=0.22cm]
+  \node[crnode={campoazul}{2.55cm}, font=\scriptsize, minimum height=1.00cm] (g1)
+    {\textbf{Grupo 1}\\depress\~ao maior};
+  \node[crnode={campoazul}{2.55cm}, font=\scriptsize, minimum height=1.00cm,
+        right=of g1] (g2) {\textbf{Grupo 2}\\depress\~ao maior};
+  \node[crnode={campoambar}{2.55cm}, font=\scriptsize, minimum height=1.00cm,
+        right=of g2] (g3) {\textbf{Grupo 3}\\epis\'odio misto};
+  \node[crnode={campoambar}{2.55cm}, font=\scriptsize, minimum height=1.00cm,
+        below=0.34cm of g1] (g4) {\textbf{Grupo 4}\\borderline};
+  \node[crnode={campobordo}{2.55cm}, font=\scriptsize, minimum height=1.00cm,
+        right=of g4] (g5) {\textbf{Grupo 5}\\intoxica\c{c}\~ao};
+  \node[crnode={campobordo}{2.55cm}, font=\scriptsize, minimum height=1.00cm,
+        right=of g5] (g6) {\textbf{Grupo 6}\\psicose};
+\end{tikzpicture}
+\end{center}
+
+\CRvg
+\begin{caixaagir}{A tarefa n\~ao \'e classificar}
+Ningu\'em vai dizer se o paciente \'e de risco baixo, moderado ou alto. Voc\^es
+v\~ao dizer qual \'e a formula\c{c}\~ao do caso e o que fariam agora, com nome,
+prazo e respons\'avel.
+\end{caixaagir}
+
+\CRvg
+\begin{caixaproteger}{Todos leem todos}
+Os seis dossi\^es est\~ao no caderno do estudante. A plen\'aria \'e por pares de
+casos, e ningu\'em apresenta o pr\'oprio caso na defesa.
+\end{caixaproteger}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 42 --
+\begin{frame}{\ftit{\faCheckDouble}{O produto}}
+\CRar{0.6}
+\begin{center}
+\begin{tikzpicture}[node distance=0.15cm]
+  \node[crnode={campoazul}{8.6cm}, font=\scriptsize, inner ysep=2.8pt] (a)
+    {\textbf{1.} suicidalidade atual \hfill \emph{at\'e 4 linhas}};
+  \node[crnode={campoambar}{8.6cm}, font=\scriptsize, inner ysep=2.8pt, below=of a] (b)
+    {\textbf{2.} modificadores relevantes agora \hfill \emph{at\'e 4 linhas}};
+  \node[crnode={campoverde}{8.6cm}, font=\scriptsize, inner ysep=2.8pt, below=of b] (c)
+    {\textbf{3.} seguran\c{c}a e suporte dispon\'iveis \hfill \emph{at\'e 3 linhas}};
+  \node[crnode={campobordo}{8.6cm}, font=\scriptsize, inner ysep=2.8pt, below=of c] (d)
+    {\textbf{4.} conduta imediata \hfill \emph{at\'e 5 linhas}};
+  \node[crnode={campoverde}{8.6cm}, font=\scriptsize, inner ysep=2.8pt, below=of d] (e)
+    {\textbf{5.} continuidade do cuidado \hfill \emph{at\'e 4 linhas}};
+  \node[crnode={campoazul}{8.6cm}, font=\scriptsize, inner ysep=2.8pt, below=of e] (f)
+    {\textbf{6.} que informa\c{c}\~ao ainda falta \hfill \emph{at\'e 3 linhas}};
+  \node[crnode={campoazul}{8.6cm}, font=\scriptsize, inner ysep=2.8pt, below=of f] (g)
+    {\textbf{7.} conclus\~ao tentadora que os dados n\~ao permitem \hfill \emph{at\'e 2 linhas}};
+\end{tikzpicture}
+\end{center}
+
+\CRvg
+\begin{center}
+\begin{tikzpicture}
+  \node[musialBlue, text width=9.2cm, font=\small, inner ysep=6pt] {%
+    \sffamily\bfseries Pergunta da defesa: qual \'e a formula\c{c}\~ao de
+    voc\^es e o que fariam agora?};
+\end{tikzpicture}
+\end{center}
+
+\mensagemagir{Nenhuma decis\~ao vale apenas por diagn\'ostico, por fator de risco
+ou por resultado de escala.}
+\end{frame}

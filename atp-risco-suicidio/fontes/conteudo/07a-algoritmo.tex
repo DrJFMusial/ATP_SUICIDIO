@@ -1,0 +1,35 @@
+% =============================================================================
+% 07a-algoritmo.tex - frame isolado, compartilhado entre a prelecao (07-sintese.tex) e o
+% PDF avulso de bolso (isolados/algoritmo.tex). Fonte unica: editar aqui.
+% =============================================================================
+% ----------------------------------------------------------------- frame 39 --
+\begin{frame}{\ftit{\faListOl}{O algoritmo}}
+\CRar{6}
+\begin{center}
+\begin{tikzpicture}[node distance=0.16cm]
+  \node[crnode={campoazul}{7.6cm}, font=\scriptsize, inner ysep=3.4pt] (a)
+    {\textbf{1. Pergunte.} Use a frase de transi\c{c}\~ao, sem rodeio.};
+  \node[crnode={campoazul}{7.6cm}, font=\scriptsize, inner ysep=3.4pt, below=of a] (b)
+    {\textbf{2. Caracterize.} Frequ\^encia, dura\c{c}\~ao, intrusividade,
+     capacidade de afastar, inten\c{c}\~ao, plano, prepara\c{c}\~ao, acesso.};
+  \node[crnode={campoambar}{7.6cm}, font=\scriptsize, inner ysep=3.4pt, below=of b] (c)
+    {\textbf{3. Identifique o que mudou.} \'Ultimas horas e \'ultimos dias.};
+  \node[crnode={campoazul}{7.6cm}, font=\scriptsize, inner ysep=3.4pt, below=of c] (d)
+    {\textbf{4. Formule.} Vulnerabilidades, modificadores, suicidalidade, acesso,
+     capacidade de construir seguran\c{c}a.};
+  \node[crnode={campobordo}{7.6cm}, font=\scriptsize, inner ysep=3.4pt, below=of d] (e)
+    {\textbf{5. Decida o ambiente.} \'E poss\'ivel construir seguran\c{c}a fora
+     daqui agora?};
+  \node[crnode={campoverde}{7.6cm}, font=\scriptsize, inner ysep=3.4pt, below=of e] (f)
+    {\textbf{6. Construa seguran\c{c}a.} Restri\c{c}\~ao de acesso pactuada e
+     plano escrito com ele.};
+  \node[crnode={campoverde}{7.6cm}, font=\scriptsize, inner ysep=3.4pt, below=of f] (g)
+    {\textbf{7. Defina continuidade.} Data, local, respons\'avel, via de contato,
+     conduta se piorar.};
+
+  \foreach \i/\j/\c in {a/b/campoazul, b/c/campoambar, c/d/campoazul,
+                        d/e/campobordo, e/f/campoverde, f/g/campoverde}
+    \draw[crseta=\c] (\i.south) -- (\j.north);
+\end{tikzpicture}
+\end{center}
+\end{frame}

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: "ATP Risco de suicidio: avaliacao e conduta"
+message: "Material didatico. Se reusar, cite como abaixo."
+type: dataset
+authors:
+  - family-names: Musial
+    given-names: Joao Frederico
+    affiliation: "Centro Universitario Campo Real"
+date-released: 2026-09-28
+license: CC-BY-NC-SA-4.0
+keywords:
+  - suicidio
+  - educacao medica
+  - saude mental
+  - atividade teorico-pratica
+abstract: >-
+  Atividade teorico-pratica do modulo E3M40, Funcionalidade III, Cognicao e
+  Humor, do curso de Medicina do Centro Universitario Campo Real. Inclui a
+  prelecao de 40 frames, seis dossies de caso em tres pares pedagogicos, a
+  folha de trabalho de sete campos e dois cartoes de bolso. A tese e que o
+  risco suicida e formulacao clinica dinamica, e nao escore nem categoria.

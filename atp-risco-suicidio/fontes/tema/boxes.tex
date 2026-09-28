@@ -1,0 +1,197 @@
+% =============================================================================
+% tema/boxes.tex - caixas semanticas, ferramentas de tabela e macros de autor
+% -----------------------------------------------------------------------------
+% Decisao herdada da serie: as caixas de conteudo sao construidas sobre o block
+% nativo do Beamer, nao sobre tcolorbox, para que raio de canto, respiro interno
+% e tipografia de titulo sejam os mesmos em toda a serie. O arredondamento e a
+% sombra estao no preambulo, com \setbeamertemplate{blocks}[rounded][shadow],
+% e nao aqui.
+%
+% \CRnewblock tem QUATRO argumentos. O marcador de itemizacao herda a cor pela
+% definicao de "local structure" e "item" com a cor do TITULO da caixa.
+% =============================================================================
+
+% #1 nome do ambiente | #2 cor do titulo | #3 cor do fundo | #4 cor do texto do titulo
+\newcommand{\CRnewblock}[4]{%
+  \newenvironment{#1}[1]{%
+    \begingroup
+    \setbeamercolor{block title}{bg=#2, fg=#4}%
+    \setbeamercolor{block body}{bg=#3, fg=black}%
+    \setbeamercolor{local structure}{fg=#2}%
+    \setbeamercolor{item}{fg=#2}%
+    \begin{block}{##1}%
+  }{%
+    \end{block}%
+    \endgroup
+  }%
+}
+
+% =============================================================================
+% AS SEIS CAIXAS. Uma por funcao do mapa de cor do briefing. Nenhuma outra cor.
+%   azul     avaliacao e entrevista
+%   ambar    mudanca recente e janelas de vigilancia
+%   bordo    acao imediata, disposicao, remocao, ambiente protegido
+%   verde    suporte, protecao, plano de seguranca, continuidade
+%   grafite  normativa, documento e registro
+%   roxo     farmacologia
+% =============================================================================
+\CRnewblock{CRbaseavaliar}{campoazul!88}{campoazul!8}{white}
+\CRnewblock{CRbasemudanca}{campoambar}{campoambar!10}{white}
+\CRnewblock{CRbaseagir}{campobordo}{campobordo!7}{white}
+\CRnewblock{CRbaseproteger}{campoverde}{campoverde!8}{white}
+\CRnewblock{CRbasenorma}{campografite}{campografite!7}{white}
+\CRnewblock{CRbasefarmaco}{camporoxo}{camporoxo!8}{white}
+
+% =============================================================================
+% VOCABULARIO DE ICONE
+% -----------------------------------------------------------------------------
+% Um icone por FUNCAO, sempre o mesmo, nunca outro. O icone nao decora: ele diz,
+% antes da leitura, a que familia aquela caixa pertence, do mesmo modo que a cor.
+% Cor e icone andam juntos e nenhum dos dois aparece sozinho.
+%
+% Todos os nomes usados aqui constam da Comprehensive LaTeX Symbol List e foram
+% conferidos um a um contra a instalacao (ferramentas/simbolos.py).
+% =============================================================================
+\newcommand{\iAvaliar}{\faComments}          % avaliacao e entrevista
+\newcommand{\iMudanca}{\faClock}             % mudanca recente e vigilancia
+\newcommand{\iAgir}{\faAmbulance}            % acao imediata e disposicao
+\newcommand{\iProteger}{\faHandsHelping}     % suporte, protecao, continuidade
+\newcommand{\iNorma}{\faBalanceScale}        % normativa, documento, registro
+\newcommand{\iFarmaco}{\faPills}             % farmacologia
+
+% As seis caixas, cada uma ja com o seu icone no titulo.
+\newenvironment{caixaavaliar}[1]{\begin{CRbaseavaliar}{\iAvaliar~~#1}}{\end{CRbaseavaliar}}
+\newenvironment{caixamudanca}[1]{\begin{CRbasemudanca}{\iMudanca~~#1}}{\end{CRbasemudanca}}
+\newenvironment{caixaagir}[1]{\begin{CRbaseagir}{\iAgir~~#1}}{\end{CRbaseagir}}
+\newenvironment{caixaproteger}[1]{\begin{CRbaseproteger}{\iProteger~~#1}}{\end{CRbaseproteger}}
+\newenvironment{caixanorma}[1]{\begin{CRbasenorma}{\iNorma~~#1}}{\end{CRbasenorma}}
+\newenvironment{caixafarmaco}[1]{\begin{CRbasefarmaco}{\iFarmaco~~#1}}{\end{CRbasefarmaco}}
+
+% Titulo de frame com icone de orientacao. O icone marca a etapa da cadeia
+% avaliar, formular, decidir, construir seguranca, garantir continuidade, e
+% permite ao aluno saber onde esta sem ler o titulo inteiro.
+\newcommand{\ftit}[2]{#1\,\,#2}
+
+% =============================================================================
+% REALCES DE TEXTO
+% =============================================================================
+\newcommand{\avaliar}[1]{\textbf{\color{campoazul!90!black}#1}}
+\newcommand{\mudanca}[1]{\textbf{\color{campoambar!90!black}#1}}
+\newcommand{\agir}[1]{\textbf{\color{campobordo!90!black}#1}}
+\newcommand{\proteger}[1]{\textbf{\color{campoverde!80!black}#1}}
+\newcommand{\norma}[1]{\textbf{\color{campografite}#1}}
+\newcommand{\farmaco}[1]{\textbf{\color{camporoxo!88!black}#1}}
+
+% Fala literal a ser dita ao paciente ou a familia. Vai para a tela como esta.
+\newcommand{\fala}[1]{{\itshape\color{campoazul!85!black}\guillemotleft #1\guillemotright}}
+
+% Procedencia discreta, ao pe do frame.
+\newcommand{\fonte}[1]{%
+  \par\vspace{0.4ex}%
+  {\raggedleft\scriptsize\sffamily\color{campografite}#1\par}%
+}
+
+% Rotulo curto embutido no texto.
+\newcommand{\chip}[2]{%
+  \tikz[baseline=(x.base)]{\node[chipno={#1}] (x) {\strut #2};}%
+}
+
+% Grau de vinculacao da afirmacao. A aula separa o que e norma, o que e
+% interpretacao clinica e o que e recomendacao apoiada em evidencia.
+\newcommand{\selonorma}{{\scriptsize\sffamily\color{campografite}\textbf{[norma]}}}
+\newcommand{\seloevidencia}{{\scriptsize\sffamily\color{campoverde}\textbf{[evid\^encia]}}}
+\newcommand{\seloclinico}{{\scriptsize\sffamily\color{campoazul}\textbf{[interpreta\c{c}\~ao cl\'inica]}}}
+
+% =============================================================================
+% MENSAGEM DOMINANTE DO FRAME
+% Largura total. Nunca dentro de columns.
+% =============================================================================
+\newcommand{\mensagem}[1]{%
+  \par\vspace{\CRgapbox}%
+  \begingroup
+  \setlength{\fboxsep}{5pt}%
+  \noindent\colorbox{campoazul!10}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \centering\small\sffamily\bfseries\color{campoazul!90!black}#1}}%
+  \endgroup
+  \par
+}
+\newcommand{\mensagemagir}[1]{%
+  \par\vspace{\CRgapbox}%
+  \begingroup
+  \setlength{\fboxsep}{5pt}%
+  \noindent\colorbox{campobordo!8}{%
+    \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+      \centering\small\sffamily\bfseries\color{campobordo}#1}}%
+  \endgroup
+  \par
+}
+
+% =============================================================================
+% ITENS COMPACTOS, com a separacao governada pelo botao de ar
+% =============================================================================
+\newenvironment{itemc}{%
+  \begin{itemize}\setlength{\itemsep}{\CRitemsep}\setlength{\parskip}{0pt}%
+  \setlength{\topsep}{0pt}\setlength{\partopsep}{0pt}%
+}{%
+  \end{itemize}%
+}
+
+% Calha explicita entre colunas. Nenhum par de colunas soma mais de 0.94.
+\newcommand{\calha}{\hspace{0.035\textwidth}}
+
+% =============================================================================
+% TABELAS DA SERIE
+% -----------------------------------------------------------------------------
+% A altura de linha vem de uma regua invisivel IDENTICA no inicio de TODA
+% celula, governada por \CRestica, e nunca de \extrarowheight, que acrescenta
+% espaco so acima da linha de base e desalinha o rotulo da primeira coluna.
+% A primeira coluna e coluna de paragrafo de largura fixa, tipo E, e nunca l.
+% Dentro do ambiente vale \lefthyphenmin=3. A barra de celula se escreve
+% \slash, que imprime a mesma barra e admite quebra depois dela.
+% =============================================================================
+\newcommand{\CRregua}{\rule[-\CRestica]{0pt}{\dimexpr 2\CRestica + 1em\relax}}
+\newcolumntype{E}{>{\CRregua\raggedright\arraybackslash}p{\CRcolentidade}}
+\newcolumntype{P}[1]{>{\CRregua\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\CRregua\centering\arraybackslash}p{#1}}
+
+\newenvironment{CRtabela}{%
+  \begingroup
+  \lefthyphenmin=3\relax
+  \sffamily\footnotesize
+  \setlength{\tabcolsep}{3pt}%
+  \renewcommand{\arraystretch}{1.0}%
+  \arrayrulecolor{campoazul!35}%
+}{%
+  \endgroup
+}
+
+% =============================================================================
+% \quadroDx : macro UNICA dos frames da parte 3B. Geometria identica em todas
+% as ocorrencias, dois quadros por frame. Nao revisa o diagnostico.
+%   #1 quadro | #2 o que eleva o risco aqui | #3 o que muda na conduta
+%   #4 erro classico
+% =============================================================================
+\newcommand{\quadroDx}[4]{%
+  \begin{tcolorbox}[
+      enhanced, sharp corners=downhill, arc=3pt, boxrule=0.9pt,
+      colframe=campoazul!75!black, colback=white,
+      left=5pt, right=5pt, top=4pt, bottom=4pt,
+      width=\linewidth, height=6.15cm, valign=top,
+      drop shadow={black!35},
+      fontupper=\scriptsize,
+      title={\sffamily\bfseries #1}, fonttitle=\scriptsize,
+      colbacktitle=campoazul!88, coltitle=white,
+      attach boxed title to top left={xshift=5pt, yshift=-2pt},
+      boxed title style={sharp corners=downhill, arc=2pt, boxrule=0pt}]
+    \vspace{0.26cm}
+    {\sffamily\bfseries\scriptsize\color{campoambar!88!black}O QUE ELEVA O RISCO AQUI}\par
+    \vspace{0.05cm}#2\par
+    \vspace{0.17cm}
+    {\sffamily\bfseries\scriptsize\color{campobordo}O QUE MUDA NA CONDUTA}\par
+    \vspace{0.05cm}#3\par
+    \vspace{0.17cm}
+    {\sffamily\bfseries\scriptsize\color{campografite}ERRO CL\'ASSICO}\par
+    \vspace{0.05cm}#4
+  \end{tcolorbox}%
+}

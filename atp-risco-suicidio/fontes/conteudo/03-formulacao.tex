@@ -1,0 +1,190 @@
+% =============================================================================
+% 03-formulacao.tex - PARTE 3, como formular. Frames 16 a 20.
+% A matriz comum em tela unica e depois desdobrada.
+% =============================================================================
+
+% ----------------------------------------------------------------- frame 16 --
+% A MATRIZ COMUM, tela unica. Todos os frames seguintes desdobram esta.
+\begin{frame}{\ftit{\faClipboardList}{A matriz da formula\c{c}\~ao}}
+\CRar{6}
+\begin{center}
+\begin{tikzpicture}
+  \node[crnode={campografite}{1.95cm}, font=\scriptsize, inner xsep=4pt,
+        minimum height=1.05cm] (v) at (0,0) {vulnerabilidades\\basais};
+  \node[font=\footnotesize\bfseries\color{campografite},
+        right=0.09cm of v] (m1) {+};
+  \node[crnode={campoambar}{1.60cm}, font=\scriptsize, inner xsep=4pt,
+        minimum height=1.05cm, right=0.09cm of m1] (p) {modificadores\\proximais};
+  \node[font=\footnotesize\bfseries\color{campografite},
+        right=0.09cm of p] (m2) {+};
+  \node[crnode={campoazul}{1.60cm}, font=\scriptsize, inner xsep=4pt,
+        minimum height=1.05cm, right=0.09cm of m2] (s) {suicidalidade\\atual};
+  \node[font=\footnotesize\bfseries\color{campografite},
+        right=0.09cm of s] (m3) {+};
+  \node[crnode={campobordo}{1.60cm}, font=\scriptsize, inner xsep=4pt,
+        minimum height=1.05cm, right=0.09cm of m3] (a) {acesso\\a meios};
+
+  \node[crnode={campoverde}{4.00cm}, font=\scriptsize, inner xsep=4pt,
+        minimum height=0.78cm] (c) at ($(v.south)!0.5!(p.south) + (0,-1.05)$)
+    {capacidade de construir seguran\c{c}a};
+  \node[crnode={campoazul}{2.95cm}, font=\small, inner xsep=4pt,
+        minimum height=0.78cm] (f) at ($(s.south)!0.5!(a.south) + (0.25,-1.05)$)
+    {\textbf{formula\c{c}\~ao}};
+
+  \draw[musialThin] (v.south) |- ($(c.north)+(0,0.28)$) -- (c.north);
+  \draw[musialThin] (p.south) -- ($(p.south)+(0,-0.28)$) -- (c.north);
+  \draw[crseta=campoazul]  (s.south) -- ($(s.south)+(0,-0.28)$) -- (f.north);
+  \draw[crseta=campobordo] (a.south) |- ($(f.north)+(0,0.28)$) -- (f.north);
+  \draw[crseta=campoverde] (c.east) -- (f.west);
+\end{tikzpicture}
+\end{center}
+
+\CRvg
+\begin{center}
+\begin{tikzpicture}
+  \node[musialBlue, text width=9.3cm, font=\small, inner ysep=7pt] {%
+    \sffamily\bfseries \'E poss\'ivel construir seguran\c{c}a suficiente fora de
+    um ambiente protegido neste momento?};
+\end{tikzpicture}
+\end{center}
+
+\mensagem{A sa\'ida da matriz \'e uma pergunta que se responde com conduta, e
+n\~ao uma etiqueta.}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 17 --
+\begin{frame}{\ftit{\faHourglassHalf}{Vulnerabilidades basais e modificadores proximais}}
+\CRar{2}
+\begin{columns}[onlytextwidth, t]
+\begin{column}{0.47\textwidth}
+\begin{caixanorma}{Vulnerabilidades basais}
+O que este paciente carrega h\'a meses ou anos.
+\begin{itemc}
+\item transtorno mental em curso
+\item tentativa pr\'evia, o preditor isolado mais forte
+\item autoles\~ao recorrente
+\item doen\c{c}a dolorosa ou incapacitante
+\item isolamento e perda de papel social
+\end{itemc}
+\end{caixanorma}
+\end{column}
+\calha
+\begin{column}{0.47\textwidth}
+\begin{caixamudanca}{Modificadores proximais}
+O que est\'a diferente nesta semana e nesta noite.
+\begin{itemc}
+\item intoxica\c{c}\~ao, agita\c{c}\~ao, ins\^onia
+\item psicose e impulsividade
+\item perda, humilha\c{c}\~ao, ruptura recente
+\item mudan\c{c}a de tratamento ou alta recente
+\item rede que deixou de estar dispon\'ivel
+\end{itemc}
+\end{caixamudanca}
+\end{column}
+\end{columns}
+
+\mensagem{A vulnerabilidade explica por que este paciente, e n\~ao outro. O
+modificador explica por que hoje, e n\~ao no m\^es passado.}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 18 --
+\begin{frame}{\ftit{\faKey}{Suicidalidade atual e acesso a meios}}
+\CRar{6}
+\begin{columns}[onlytextwidth, t]
+\begin{column}{0.47\textwidth}
+\begin{caixaavaliar}{Suicidalidade atual}
+O que foi caracterizado na entrevista, em vez de resumido em uma palavra:
+frequ\^encia, dura\c{c}\~ao, intrusividade, capacidade de afastar,
+inten\c{c}\~ao, plano e prepara\c{c}\~ao, com a data do que houve.
+\end{caixaavaliar}
+\end{column}
+\calha
+\begin{column}{0.47\textwidth}
+\begin{caixaagir}{Acesso a meios}
+Tr\^es perguntas, e nenhuma sobre m\'etodo:
+\begin{itemc}
+\item existe acesso agora?
+\item \'e concretamente poss\'ivel restringir?
+\item quem da rede participa dessa restri\c{c}\~ao?
+\end{itemc}
+\end{caixaagir}
+\end{column}
+\end{columns}
+
+\CRvg
+\begin{center}
+\begin{tikzpicture}
+  \node[crnode={campografite}{9.5cm}, font=\scriptsize] {%
+    A pergunta sobre arma de fogo na resid\^encia \'e obrigat\'oria e quase nunca
+    aparece no registro. A aus\^encia dela \'e a falha mais comum destes
+    atendimentos.};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 19 --
+\begin{frame}{\ftit{\faHandsHelping}{Capacidade de construir seguran\c{c}a}}
+\CRar{3.3}
+{\small \'E o elemento que os outros quatro n\~ao mostram, e o que mais muda a
+conduta.\par}
+
+\CRvg
+\begin{columns}[onlytextwidth, t]
+\begin{column}{0.47\textwidth}
+\begin{caixaproteger}{Sustenta o plano}
+\begin{itemc}
+\item comunica o que sente a algu\'em
+\item aceita que a rede seja acionada
+\item pactua o que far\'a se piorar
+\item consegue reduzir o acesso hoje
+\item tem quem permane\c{c}a com ele
+\end{itemc}
+\end{caixaproteger}
+\end{column}
+\calha
+\begin{column}{0.47\textwidth}
+\begin{caixaagir}{N\~ao sustenta o plano}
+\begin{itemc}
+\item oculta a situa\c{c}\~ao da fam\'ilia
+\item recusa a participa\c{c}\~ao da rede
+\item n\~ao consegue pactuar nada concreto
+\item n\~ao colabora por psicose ou intoxica\c{c}\~ao
+\item tem rede que existe e n\~ao sustenta
+\end{itemc}
+\end{caixaagir}
+\end{column}
+\end{columns}
+
+\mensagem{Rede dispon\'ivel n\~ao \'e o mesmo que supervis\~ao poss\'ivel.
+Pergunte o que aquela pessoa consegue fazer, e at\'e quando.}
+\end{frame}
+
+% ----------------------------------------------------------------- frame 20 --
+% A critica ao semaforo. O unico lugar em que baixo, moderado e alto aparecem.
+\begin{frame}{\ftit{\faTimes}{O que a matriz substitui}}
+\CRar{4.6}
+\begin{center}
+\begin{tikzpicture}[node distance=0.22cm]
+  \node[crnode={campografite}{1.38cm}, font=\scriptsize, inner xsep=4pt] (b) {baixo};
+  \node[crnode={campografite}{1.38cm}, font=\scriptsize, inner xsep=4pt, right=of b] (m) {moderado};
+  \node[crnode={campografite}{1.38cm}, font=\scriptsize, inner xsep=4pt, right=of m] (a) {alto};
+  \node[font=\large\color{campobordo}, right=0.26cm of a] (x) {\faTimes};
+  \node[crnode={campoazul}{3.30cm}, font=\scriptsize, inner xsep=4pt, right=0.26cm of x] (q)
+    {\'E poss\'ivel construir seguran\c{c}a fora daqui agora?};
+\end{tikzpicture}
+\end{center}
+
+\CRvg
+\begin{caixaagir}{Por que o sem\'aforo n\~ao resolve}
+A categoria n\~ao diz o que fazer. Dois pacientes classificados como risco
+moderado podem exigir condutas opostas, e a classifica\c{c}\~ao n\~ao registra
+nem o que sustenta a decis\~ao nem o que precisaria mudar para invert\^e-la.
+Escalas ajudam a n\~ao esquecer perguntas e n\~ao decidem conduta.
+\end{caixaagir}
+
+\CRvg
+\begin{caixaproteger}{O que a pergunta operacional entrega}
+Uma resposta que j\'a \'e conduta, com as duas sa\'idas explicitadas, e um
+registro que permite reconstruir depois por que a decis\~ao foi aquela.
+\end{caixaproteger}
+\end{frame}

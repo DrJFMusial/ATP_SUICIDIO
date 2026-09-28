@@ -1,0 +1,140 @@
+% =============================================================================
+% tema/tikz.tex - vocabulario grafico da serie
+% -----------------------------------------------------------------------------
+% Conjunto musial*, herdado sem ruptura da implementacao de referencia
+% (FIBROMIALGIA_2026_REFINADA): gradiente branco para tonalidade clara, borda
+% semantica, sombra difusa discreta e seta com a cor do destino.
+%
+% Acrescimos validados na serie e mantidos aqui: supressao de hifenizacao em
+% todo no, os atalhos crnode, crseta e passo, a moldura \bandaimg e o \chip.
+%
+% Regra que vale em todo frame: a seta sai de uma FACE explicita do no
+% (.south, .east, .north, .west) e nunca do centro. Uma seta ancorada no centro
+% calcula o ++ a partir do centro e, quando a altura minima do no cresce, o
+% rotulo cai dentro da propria caixa.
+% =============================================================================
+
+\tikzset{
+  % --- base -----------------------------------------------------------------
+  musialBase/.style={rectangle, rounded corners=3pt, very thick, align=center,
+                     inner xsep=6pt, inner ysep=5pt, font=\footnotesize,
+                     execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000},
+                     blur shadow={shadow blur steps=4, shadow xshift=0.8pt,
+                                  shadow yshift=-0.8pt}},
+  musialBlue/.style={musialBase, draw=campoazul!80!black,
+                     top color=white, bottom color=campoazul!18},
+  musialGreen/.style={musialBase, draw=campoverde!82!black,
+                      top color=white, bottom color=campoverde!18},
+  musialRed/.style={musialBase, draw=campobordo!88!black,
+                    top color=white, bottom color=campobordo!14},
+  musialAmber/.style={musialBase, draw=campoambar!88!black,
+                      top color=white, bottom color=campoambar!18},
+  musialPurple/.style={musialBase, draw=camporoxo!80!black,
+                       top color=white, bottom color=camporoxo!16},
+  musialYellow/.style={musialBase, draw=campoamarelo!72!black,
+                       top color=white, bottom color=campoamarelo!24},
+  musialNeutral/.style={musialBase, draw=campografite!55,
+                        top color=white, bottom color=campografite!6},
+  % --- circulo central ------------------------------------------------------
+  musialCenter/.style={circle, very thick, draw=campoazul!85!black,
+                       top color=white, bottom color=campoazul!28,
+                       text=campoazul!90!black, align=center,
+                       font=\small\bfseries\sffamily,
+                       minimum size=2.25cm, inner sep=4pt,
+                       execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000},
+                       blur shadow={shadow blur steps=5, shadow xshift=1pt,
+                                    shadow yshift=-1pt}},
+  % --- setas ----------------------------------------------------------------
+  musialFlow/.style={-{Latex[length=2.5mm,width=1.8mm]}, line width=0.8pt,
+                     campoazul!85!black, rounded corners=4pt},
+  musialFlowGreen/.style={musialFlow, campoverde!85!black},
+  musialFlowRed/.style={musialFlow, campobordo!88!black},
+  musialFlowAmber/.style={musialFlow, campoambar!90!black},
+  musialFlowPurple/.style={musialFlow, camporoxo!85!black},
+  musialFlowGraf/.style={musialFlow, campografite!80},
+  musialThin/.style={-{Latex[length=2.0mm]}, semithick, campografite!70},
+  musialBi/.style={{Latex[length=2.2mm,width=1.6mm]}-{Latex[length=2.2mm,width=1.6mm]},
+                   line width=0.7pt, campoazul!75!black, rounded corners=4pt},
+  % --- dose, herdados -------------------------------------------------------
+  musialDose/.style={musialBlue, text width=3.0cm, minimum height=0.95cm,
+                     font=\footnotesize},
+  musialDoseTarget/.style={musialGreen, text width=3.0cm, minimum height=0.95cm,
+                           font=\footnotesize},
+  % --- rotulo sobre linha ---------------------------------------------------
+  musialRot/.style={font=\scriptsize\sffamily, text=campografite,
+                    fill=white, fill opacity=0.9, text opacity=1,
+                    inner sep=1.6pt, rounded corners=1pt, align=center},
+  % --- chip inline ----------------------------------------------------------
+  chipno/.style args={#1}{rectangle, rounded corners=2pt, draw=#1!75!black,
+                          fill=#1!10, text=#1!80!black, inner xsep=3.2pt,
+                          inner ysep=1.2pt, font=\scriptsize\sffamily\bfseries},
+}
+
+% =============================================================================
+% ATALHOS DE AUTOR
+% -----------------------------------------------------------------------------
+% crnode={cor}{largura} : no da familia musial na cor semantica pedida, com
+%                         largura fixa, para que colunas de diagrama fiquem
+%                         alinhadas sem ajuste manual.
+% crseta={cor}          : seta da familia musial na mesma cor semantica.
+% passo={cor}           : circulo numerado com gradiente, para etapas.
+% =============================================================================
+\tikzset{
+  crnode/.style n args={2}{musialBase, draw=#1!80!black,
+                           top color=white, bottom color=#1!18,
+                           text width=#2, align=center},
+  crseta/.style={-{Latex[length=2.5mm,width=1.8mm]}, line width=0.8pt,
+                 rounded corners=4pt, #1!85!black},
+  passo/.style={circle, very thick, draw=#1!85!black,
+                top color=white, bottom color=#1!30, text=#1!75!black,
+                font=\scriptsize\bfseries\sffamily, inner sep=1.6pt,
+                minimum size=5.2mm},
+}
+
+% =============================================================================
+% \bandaimg : moldura clara com sombra sobre figura de fundo branco. Resolve a
+% costura da figura com a marca d'agua do slide. Usar sempre que a ilustracao
+% tiver fundo branco puro.
+%   \bandaimg{opcoes de includegraphics}{arquivo}
+% =============================================================================
+\newcommand{\bandaimg}[2]{%
+  \begin{tikzpicture}
+    \node[rectangle, rounded corners=3pt, inner sep=3pt, fill=white,
+          draw=campografite!25, line width=0.5pt,
+          blur shadow={shadow blur steps=4, shadow xshift=0.8pt,
+                       shadow yshift=-0.8pt}]
+      {\includegraphics[keepaspectratio,#1]{#2}};
+  \end{tikzpicture}%
+}
+
+% =============================================================================
+% \reservaimg : espaco reservado para ilustracao ainda nao produzida. Compila
+% como moldura vazia com a legenda do que vai entrar ali. Ao existir o arquivo,
+% trocar a chamada por \bandaimg com o mesmo primeiro argumento.
+%   \reservaimg{largura}{altura}{descricao curta}
+% =============================================================================
+\newcommand{\reservaimg}[3]{%
+  \begin{tikzpicture}
+    \node[rectangle, rounded corners=3pt, minimum width=#1, minimum height=#2,
+          fill=campografite!4, draw=campografite!30, line width=0.5pt,
+          dash pattern=on 2.6pt off 2.2pt, align=center,
+          text width={\dimexpr #1 - 10pt\relax},
+          font=\scriptsize\sffamily\color{campografite!85}]
+      {\faFile\quad reserva de ilustra\c{c}\~ao\\[2pt]\scriptsize #3};
+  \end{tikzpicture}%
+}
+
+% =============================================================================
+% \imgcanvas : sistema de coordenadas normalizado sobre uma figura, de (0,0)
+% no canto inferior esquerdo a (1,1) no canto superior direito, para acrescentar
+% rotulos VETORIAIS sem tocar no arquivo rasterizado.
+% =============================================================================
+\newenvironment{imgcanvas}[2]{%
+  \begin{tikzpicture}
+    \node[anchor=south west, inner sep=0] (img) at (0,0)
+      {\includegraphics[keepaspectratio,#1]{#2}};
+    \begin{scope}[x={(img.south east)}, y={(img.north west)}]
+}{%
+    \end{scope}
+  \end{tikzpicture}%
+}
