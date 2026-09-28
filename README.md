@@ -15,8 +15,8 @@ Prof. João Frederico Musial · 2026
 
 A página é servida pelo GitHub Pages a partir da raiz deste repositório:
 
-<!-- Troque USUARIO e REPOSITORIO pelos seus depois do primeiro push. -->
-**https://USUARIO.github.io/REPOSITORIO/**
+<!-- Endereço oficial da página publicada. -->
+**https://DrJFMusial.github.io/ATP_SUICIDIO/**
 
 | Endereço | O que é |
 | --- | --- |
@@ -45,7 +45,7 @@ aluno e nada é enviado a lugar nenhum.
    git add .
    git commit -m "ATP Risco de suicídio, E3M40, 2026"
    git branch -M main
-   git remote add origin https://github.com/USUARIO/REPOSITORIO.git
+   git remote add origin https://github.com/DrJFMusial/ATP_SUICIDIO.git
    git push -u origin main
    ```
 

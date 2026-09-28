@@ -1,0 +1,10 @@
+# Material docente e arquivos temporários
+gabarito*
+handout*
+docente/
+MATERIAL-DOCENTE/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
