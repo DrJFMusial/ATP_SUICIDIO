@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Caderno do estudante da ATP Risco de Suicidio, modulo E3M40, Medicina, Centro Universitario Campo Real.">
+<title>ATP Risco de Suic&iacute;dio | Caderno do estudante</title>
+<style>
+:root{
+  --azul:#003366; --azul-8:#eef3f8; --azul-16:#dde7f1;
+  --amarelo:#FFD700; --vinho:#7A0019; --verde:#1B8A5A; --ambar:#BF7A00;
+  --grafite:#3A3F45; --roxo:#662D91;
+  --papel:#faf9f7; --carta:#ffffff; --linha:#dfdbd4; --tinta:#1b1b1b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--papel);color:var(--tinta);
+  font:16.5px/1.64 "Libertinus Serif","Linux Libertine O",Georgia,"Times New Roman",serif;}
+.wrap{max-width:880px;margin:0 auto;padding-block:0;padding-left:18px;padding-right:18px}
+
+/* ------------------------------------------------------------- topo ----- */
+.barra{position:sticky;top:0;z-index:40;background:var(--azul);color:#fff;
+  box-shadow:0 1px 8px rgba(0,0,0,.18)}
+.barra .wrap{display:flex;align-items:center;gap:14px;min-height:46px;
+  padding-top:6px;padding-bottom:6px;flex-wrap:wrap}
+.barra .marca{font:700 12.5px/1 Roboto,"Helvetica Neue",system-ui,sans-serif;
+  letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+.barra nav{display:flex;gap:3px;flex-wrap:wrap;margin-left:auto}
+.barra nav a{color:#cfe0f0;text-decoration:none;font:600 12.5px/1 Roboto,system-ui,sans-serif;
+  padding:6px 8px;border-radius:4px}
+.barra nav a:hover{background:rgba(255,255,255,.13);color:#fff}
+.barra nav a.destaque{background:var(--amarelo);color:#2b2000}
+.barra nav a.destaque:hover{background:#ffe34d;color:#2b2000}
+
+header.capa{background:var(--carta);border-bottom:1px solid var(--linha)}
+header.capa .wrap{padding-block:34px}
+.capa .kicker{font:700 12px/1.4 Roboto,system-ui,sans-serif;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--vinho)}
+.capa h1{font:700 clamp(25px,5.2vw,36px)/1.16 Roboto,system-ui,sans-serif;
+  color:var(--azul);margin:8px 0 6px;letter-spacing:-.01em}
+.capa .sub{font-size:17.5px;color:var(--grafite);margin:0 0 16px;max-width:62ch}
+.capa .creditos{font:400 14px/1.5 Roboto,system-ui,sans-serif;color:var(--grafite);
+  border-top:1px solid var(--linha);padding-top:13px}
+.capa .creditos b{color:var(--azul);font-weight:600}
+
+/* ------------------------------------------------------------ avisos ---- */
+.aviso{background:#fdf7e6;border:1px solid #e8d38a;border-left:5px solid var(--amarelo);
+  border-radius:0 6px 6px 0;padding:16px 20px;margin:26px 0}
+.aviso h2{font:700 13px/1.3 Roboto,system-ui,sans-serif;letter-spacing:.09em;
+  text-transform:uppercase;color:#7a5c00;margin:0 0 8px}
+.aviso p{margin:0 0 8px;font-size:15.6px}
+.aviso p:last-child{margin:0}
+.aviso .cvv{font:600 16px/1.4 Roboto,system-ui,sans-serif;color:var(--vinho)}
+
+.tese{background:var(--azul-8);border-left:5px solid var(--azul);border-radius:0 6px 6px 0;
+  padding:16px 20px;margin:22px 0 30px}
+.tese .rotulo{font:700 12px/1.3 Roboto,system-ui,sans-serif;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--azul);margin-bottom:7px}
+.tese p{margin:0 0 9px}
+.tese p:last-child{margin:0}
+.tese .refrao{font-weight:600;color:var(--azul)}
+
+/* ------------------------------------------------------------- casos ---- */
+.grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:11px;
+  margin:18px 0 34px}
+.cartao{display:block;text-decoration:none;background:var(--carta);
+  border:1px solid var(--linha);border-top:3px solid var(--azul);border-radius:5px;
+  padding:13px 15px;transition:box-shadow .15s,transform .15s}
+.cartao:hover{box-shadow:0 3px 12px rgba(0,51,102,.13);transform:translateY(-1px)}
+.cartao .n{font:700 11.5px/1 Roboto,system-ui,sans-serif;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--vinho)}
+.cartao .t{font:600 16.5px/1.3 Roboto,system-ui,sans-serif;color:var(--azul);margin-top:5px}
+.cartao .p{font-size:13.5px;color:var(--grafite);margin-top:3px}
+
+section.caso{background:var(--carta);border:1px solid var(--linha);border-radius:7px;
+  padding:28px 32px;margin:0 0 24px;box-shadow:0 1px 3px rgba(0,0,0,.045)}
+section.caso > .id{font:700 11.5px/1 Roboto,system-ui,sans-serif;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--vinho)}
+section.caso > h2{font:700 23px/1.24 Roboto,system-ui,sans-serif;color:var(--azul);
+  margin:7px 0 3px}
+section.caso > .par{font-size:14.5px;color:var(--grafite);margin:0 0 4px;
+  padding-bottom:11px;border-bottom:2px solid var(--amarelo)}
+section.caso h3{font:600 14px/1.3 Roboto,system-ui,sans-serif;color:var(--vinho);
+  letter-spacing:.02em;margin:24px 0 7px;text-transform:uppercase;font-size:12.5px}
+p{margin:0 0 11px}
+ul{margin:7px 0 12px;padding-left:21px}
+li{margin:4px 0}
+blockquote{margin:12px 0;padding:11px 17px;background:var(--azul-8);
+  border-left:3px solid var(--azul);border-radius:0 5px 5px 0;font-size:15.8px}
+blockquote p{margin:0 0 7px}
+blockquote p:last-child{margin:0}
+blockquote strong{color:var(--vinho);font-weight:600}
+p.rubrica{font-style:italic;color:var(--grafite);font-size:14.5px;margin:12px 0 6px}
+.ausencia{background:#f6f6f4;border:1px dashed #c4bfb6;border-radius:5px;
+  padding:11px 16px;margin-top:6px}
+.ausencia ul{margin:0;padding-left:20px}
+.ausencia li{font-size:15.3px}
+
+/* ------------------------------------------------------------- folha ---- */
+section.folha{background:var(--carta);border:1px solid var(--linha);border-radius:7px;
+  padding:28px 32px;margin:0 0 24px;box-shadow:0 1px 3px rgba(0,0,0,.045)}
+section.folha > h2{font:700 23px/1.24 Roboto,system-ui,sans-serif;color:var(--azul);
+  margin:0 0 4px;padding-bottom:11px;border-bottom:2px solid var(--amarelo)}
+.regra{background:#fbeced;border-left:4px solid var(--vinho);border-radius:0 5px 5px 0;
+  padding:12px 17px;margin:16px 0 6px;font-size:15.6px}
+.regra b{color:var(--vinho)}
+.identifica{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px}
+.identifica label{flex:1 1 150px;font:600 12px/1.5 Roboto,system-ui,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--grafite)}
+.identifica input{width:100%;margin-top:4px;padding:8px 10px;border:1px solid var(--linha);
+  border-radius:4px;font:400 15px/1.4 inherit;background:#fcfcfb;color:var(--tinta)}
+.campo{margin:22px 0 0;border-top:1px solid var(--linha);padding-top:16px}
+.campo .cab{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.campo .num{flex:0 0 auto;width:25px;height:25px;border-radius:50%;background:var(--azul);
+  color:#fff;font:700 13px/25px Roboto,system-ui,sans-serif;text-align:center}
+.campo .nome{font:600 17px/1.3 Roboto,system-ui,sans-serif;color:var(--azul)}
+.campo .limite{margin-left:auto;font:600 11.5px/1 Roboto,system-ui,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ambar);white-space:nowrap}
+.campo .dica{font-size:14.7px;color:var(--grafite);margin:6px 0 8px}
+.campo textarea{width:100%;padding:10px 12px;border:1px solid var(--linha);border-radius:5px;
+  font:400 15.6px/1.55 inherit;background:#fcfcfb;color:var(--tinta);resize:vertical}
+.campo textarea:focus{outline:2px solid var(--azul);outline-offset:-1px;background:#fff}
+.campo .contador{font:600 12px/1 Roboto,system-ui,sans-serif;color:var(--grafite);
+  margin-top:5px;text-align:right}
+.campo .contador.excedeu{color:var(--vinho)}
+.acoes{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 0;
+  border-top:1px solid var(--linha);padding-top:18px}
+button{font:600 14px/1 Roboto,system-ui,sans-serif;padding:11px 17px;border-radius:5px;
+  border:1px solid var(--azul);background:var(--azul);color:#fff;cursor:pointer}
+button:hover{background:#00284f}
+button.sec{background:#fff;color:var(--azul)}
+button.sec:hover{background:var(--azul-8)}
+button.risco{border-color:var(--vinho);background:#fff;color:var(--vinho)}
+button.risco:hover{background:#fbeced}
+.recado{font:600 13.5px/1.5 Roboto,system-ui,sans-serif;color:var(--verde);
+  margin:10px 0 0;min-height:20px}
+
+.defesa{background:var(--azul-8);border-left:5px solid var(--azul);border-radius:0 6px 6px 0;
+  padding:16px 20px;margin:26px 0 0}
+.defesa h3{font:700 12.5px/1.3 Roboto,system-ui,sans-serif;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--azul);margin:0 0 8px}
+.defesa p{margin:0 0 8px;font-size:15.6px}
+.defesa p:last-child{margin:0}
+
+footer.rodape{background:var(--azul);color:#c9dcee;margin-top:34px}
+footer.rodape .wrap{padding-block:22px;font:400 13.5px/1.6 Roboto,system-ui,sans-serif}
+footer.rodape b{color:#fff;font-weight:600}
+.voltar{display:inline-block;margin-top:16px;font:600 13px/1 Roboto,system-ui,sans-serif;
+  color:var(--azul);text-decoration:none}
+.voltar:hover{text-decoration:underline}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  section.caso,section.folha{padding:20px 17px;border-radius:5px}
+  .barra nav{width:100%;margin-left:0}
+  .capa .wrap{padding-block:26px}
+}
+@media print{
+  .barra,.acoes,.grade{display:none}
+  body{background:#fff}
+}
+</style>
+</head><body>
+
+<div class="barra"><div class="wrap">
+  <div class="marca">Medicina | Campo Real</div>
+  <nav>
+    <a href="#casos">Casos</a>
+    <a href="#caso-1">1</a><a href="#caso-2">2</a><a href="#caso-3">3</a>
+    <a href="#caso-4">4</a><a href="#caso-5">5</a><a href="#caso-6">6</a>
+    <a href="#folha" class="destaque">Folha de trabalho</a>
+  </nav>
+</div></div>
+
+<header class="capa"><div class="wrap">
+  <div class="kicker">ATP &middot; M&oacute;dulo E3M40 &middot; Funcionalidade III, Cogni&ccedil;&atilde;o e Humor</div>
+  <h1>Risco de suic&iacute;dio: avalia&ccedil;&atilde;o e conduta</h1>
+  <p class="sub">Seis pacientes, seis grupos. A tarefa n&atilde;o &eacute;
+     classific&aacute;-los em baixo, moderado ou alto.</p>
+  <div class="creditos"><b>Prof. Jo&atilde;o Frederico Musial</b> &middot; Medicina,
+     Centro Universit&aacute;rio Campo Real &middot; 2026</div>
+</div></header>
+
+<div class="wrap">
+
+  <div class="aviso">
+    <h2>Antes de come&ccedil;ar</h2>
+    <p>Este material trata de suic&iacute;dio de forma direta, com falas de pacientes.
+       Se em algum momento voc&ecirc; precisar se afastar, saia da sala ou feche a
+       p&aacute;gina. N&atilde;o &eacute; preciso justificar, e isso n&atilde;o ser&aacute;
+       registrado de nenhuma forma.</p>
+    <p class="cvv">CVV, liga&ccedil;&atilde;o gratuita, 188, 24 horas.</p>
+    <p>O apoio ao estudante do Centro Universit&aacute;rio Campo Real est&aacute;
+       dispon&iacute;vel para quem quiser conversar depois da aula, e o docente
+       tamb&eacute;m est&aacute;.</p>
+  </div>
+
+  <div class="tese">
+    <div class="rotulo">A tese da aula</div>
+    <p>O risco suicida &eacute; formula&ccedil;&atilde;o cl&iacute;nica din&acirc;mica,
+       constru&iacute;da pela intera&ccedil;&atilde;o entre vulnerabilidades basais e
+       modificadores proximais. N&atilde;o se reduz a escore nem a categoria. A conduta
+       deve produzir seguran&ccedil;a agora e continuidade depois.</p>
+    <p class="refrao">&Eacute; poss&iacute;vel construir seguran&ccedil;a suficiente fora
+       de um ambiente protegido neste momento?</p>
+    <p>Avaliar, formular, decidir, construir seguran&ccedil;a, garantir continuidade. Ao
+       final, voc&ecirc; deve saber responder: o que, neste paciente, muda o que
+       voc&ecirc; far&aacute; nos pr&oacute;ximos 30 minutos?</p>
+  </div>
+
+  <h2 id="casos" style="font:700 20px/1.3 Roboto,system-ui,sans-serif;color:var(--azul);
+      margin:34px 0 2px">Os seis casos</h2>
+  <p style="color:var(--grafite);font-size:15.3px;margin:0">Cada grupo defende o seu, mas
+     todos leem todos. A plen&aacute;ria &eacute; feita por pares de casos.</p>
+  <div class="grade"><a class="cartao" href="#caso-1"><div class="n">Grupo 1</div><div class="t">Caso 1</div><div class="p">Depressão maior</div></a><a class="cartao" href="#caso-2"><div class="n">Grupo 2</div><div class="t">Caso 2</div><div class="p">Depressão maior</div></a><a class="cartao" href="#caso-3"><div class="n">Grupo 3</div><div class="t">Caso 3</div><div class="p">Transtorno bipolar, episódio misto</div></a><a class="cartao" href="#caso-4"><div class="n">Grupo 4</div><div class="t">Caso 4</div><div class="p">Transtorno de personalidade borderline</div></a><a class="cartao" href="#caso-5"><div class="n">Grupo 5</div><div class="t">Caso 5</div><div class="p">Intoxicação aguda por álcool</div></a><a class="cartao" href="#caso-6"><div class="n">Grupo 6</div><div class="t">Caso 6</div><div class="p">Quadro psicótico</div></a></div>
+
+  <section class="caso" id="caso-1"><div class="id">Grupo 1</div><h2>Caso 1. Depressão maior</h2><p class="par">Par 1, dossiê A. Leia o caso inteiro antes de abrir a folha de trabalho.</p><h3>Situação inicial</h3><p>Renata, 38 anos, professora do ensino fundamental, procura espontaneamente a unidade de pronto atendimento em uma tarde de quinta-feira, sem encaminhamento. Chega acompanhada da irmã, que aguarda na recepção. Tem diagnóstico de episódio depressivo maior firmado há sete meses no ambulatório de saúde mental do município e está em uso de sertralina 50 mg ao dia há seis semanas, prescrita na última consulta. Diz que procurou atendimento porque &quot;não está aguentando o peso disso&quot; e porque a irmã insistiu que ela falasse com alguém antes do fim de semana. Relata humor deprimido na maior parte do dia, perda de interesse pelas atividades que antes organizavam sua rotina, cansaço constante, dificuldade para se concentrar no preparo das aulas e sono fragmentado. Diz que o quadro piorou nas últimas três semanas, sem que consiga apontar um motivo novo. Está lúcida, orientada, colabora com a entrevista e responde a todas as perguntas. No momento em que o médico pergunta diretamente sobre pensamentos de morte, ela responde sem hesitar. A consulta ocorre às 15h40. A unidade tem retaguarda de ambulatório de saúde mental no mesmo município, com agenda de encaixe.</p><h3>Trechos literais da entrevista</h3><blockquote><p><strong>Médico:</strong> Pelo que a senhora está me contando, esse sofrimento está bem pesado. Quando as pessoas chegam assim, às vezes pensam em morrer. A senhora tem tido esses pensamentos?</p><p><strong>Renata:</strong> Tenho pensado em morrer todos os dias.</p></blockquote><blockquote><p><strong>Médico:</strong> Quando esses pensamentos aparecem, quanto tempo eles ficam?</p><p><strong>Renata:</strong> Vêm de manhã, principalmente. Ficam ali um tempo, depois eu consigo empurrar. Se eu levanto, se eu falo com a minha irmã, eles afrouxam. Não é que somem, mas eu consigo ir tocando o dia.</p></blockquote><blockquote><p><strong>Médico:</strong> A senhora chegou a pensar em como faria?</p><p><strong>Renata:</strong> Não. Eu penso que queria sumir, que queria dormir e não acordar. Pensar em como, não. Isso me assusta, para ser sincera.</p></blockquote><blockquote><p><strong>Médico:</strong> Nos últimos dias, a senhora fez alguma coisa nessa direção? Chegou a se preparar de alguma forma, mesmo que depois tenha desistido?</p><p><strong>Renata:</strong> Não. Nunca fiz nada. Eu fico com o pensamento, eu choro, e passa.</p></blockquote><blockquote><p><strong>Médico:</strong> A sua irmã sabe o que a senhora está me contando agora?</p><p><strong>Renata:</strong> Sabe. Foi ela que me trouxe. Eu falei com ela ontem à noite. Ela ficou assustada, mas ficou comigo.</p></blockquote><blockquote><p><strong>Médico:</strong> Se a senhora sair daqui hoje e esses pensamentos apertarem de novo, o que a senhora faria?</p><p><strong>Renata:</strong> Eu chamo ela. Ela mora a três quarteirões. E se for muito ruim eu volto aqui. Eu vim hoje, não vim?</p></blockquote><blockquote><p><strong>Médico:</strong> Eu preciso conversar com a senhora e com a sua irmã sobre deixar a casa mais segura nos próximos dias. A senhora topa que eu chame ela para essa conversa?</p><p><strong>Renata:</strong> Topo. Prefiro, até.</p></blockquote><h3>Exame do estado mental</h3><p>Vigil, orientada em tempo e espaço. Contato preservado, mantém o olhar, responde no tempo. Humor deprimido, afeto congruente e modulável, chora ao falar da irmã e se recompõe. Discurso organizado, ritmo levemente lentificado, sem fuga de ideias. Pensamento sem alteração de forma. Conteúdo com desesperança marcada quanto ao futuro próximo e sentimento de ser um peso para a família. Sem delírios. Sem alucinações. Sensopercepção sem alterações. Atenção e memória preservadas para o exame. Sem agitação psicomotora. Juízo crítico preservado, reconhece que os pensamentos são sintoma e pede ajuda. Sem sinais de intoxicação. Colabora integralmente com a entrevista.</p><h3>Contexto</h3><p>Mora sozinha em apartamento alugado desde a separação, há dois anos. A irmã mora a três quarteirões e tem chave do apartamento. Não tem filhos. Trabalha em duas escolas, uma municipal pela manhã e uma privada à tarde, e está no período de fechamento de notas do bimestre. Mantém contato semanal com a mãe, que mora em outra cidade. Perdeu contato com a maior parte das amizades no último ano. Não identifica um precipitante único para a piora das últimas três semanas, mas menciona sobrecarga de trabalho e o aniversário da separação. Na sala de espera está a irmã, disponível para participar da conduta e para permanecer com ela nos próximos dias, o que já foi combinado entre as duas antes da consulta.</p><h3>História clínica</h3><p>Episódio depressivo maior diagnosticado há sete meses. Primeiro episódio identificado, embora descreva um período de sintomas semelhantes, mais leve e sem tratamento, aos 24 anos. Em uso de sertralina 50 mg ao dia há seis semanas, com boa adesão e sem efeitos adversos relatados. Nunca fez psicoterapia. Sem tentativa de suicídio prévia. Sem autolesão. Sem internação psiquiátrica prévia. Sem diagnóstico prévio de transtorno bipolar, transtorno psicótico ou transtorno por uso de substâncias. Não usa álcool regularmente, refere consumo social esporádico, última vez há cerca de um mês. Não usa tabaco nem outras substâncias. Sem comorbidade clínica conhecida, sem dor crônica. Sem mudança recente de medicação, dose ou prescritor. Sem internação clínica nos últimos doze meses. Sem história familiar conhecida de suicídio.</p><h3>Informações que o registro não contém</h3><div class="ausencia"><p>O atendimento não explorou, e o dossiê não informa:</p><ul><li>se há armas de fogo na residência ou no entorno imediato;</li><li>quais medicamentos existem em casa, dela ou de terceiros, e quem os guarda;</li><li>se houve mudança recente no padrão de sono nas últimas 48 horas;</li><li>se ela dirige, e se houve alteração no comportamento ao volante;</li><li>se já houve tentativa de suicídio ou morte por suicídio na família;</li><li>o que exatamente foi combinado com a irmã antes de virem à unidade;</li><li>se ela tem consulta ambulatorial já marcada e para quando.</li></ul></div><a class="voltar" href="#casos">Voltar aos seis casos</a></section><section class="caso" id="caso-2"><div class="id">Grupo 2</div><h2>Caso 2. Depressão maior</h2><p class="par">Par 1, dossiê B. Leia o caso inteiro antes de abrir a folha de trabalho.</p><h3>Situação inicial</h3><p>Cláudia, 38 anos, professora do ensino fundamental, procura espontaneamente a unidade de pronto atendimento em uma tarde de quinta-feira, sem encaminhamento. Chega acompanhada da irmã, que aguarda na recepção. Tem diagnóstico de episódio depressivo maior firmado há sete meses no ambulatório de saúde mental do município e está em uso de sertralina 50 mg ao dia há seis semanas, prescrita na última consulta. Diz que procurou atendimento porque &quot;não está aguentando o peso disso&quot; e porque a irmã insistiu que ela falasse com alguém antes do fim de semana. Relata humor deprimido na maior parte do dia, perda de interesse pelas atividades que antes organizavam sua rotina, cansaço constante, dificuldade para se concentrar no preparo das aulas e sono fragmentado. Diz que o quadro piorou nas últimas três semanas, sem que consiga apontar um motivo novo. Está lúcida, orientada, e responde às perguntas que lhe são feitas. No momento em que o médico pergunta diretamente sobre pensamentos de morte, ela responde sem hesitar. A consulta ocorre às 15h40. A unidade tem retaguarda de ambulatório de saúde mental no mesmo município, com agenda de encaixe.</p><h3>Trechos literais da entrevista</h3><blockquote><p><strong>Médico:</strong> Pelo que a senhora está me contando, esse sofrimento está bem pesado. Quando as pessoas chegam assim, às vezes pensam em morrer. A senhora tem tido esses pensamentos?</p><p><strong>Cláudia:</strong> Tenho pensado em morrer todos os dias.</p></blockquote><blockquote><p><strong>Médico:</strong> Quando esses pensamentos aparecem, quanto tempo eles ficam?</p><p><strong>Cláudia:</strong> Ficam. Não vou dizer que vão embora.</p></blockquote><blockquote><p><strong>Médico:</strong> A senhora chegou a pensar em como faria?</p><p><strong>Cláudia:</strong> Já pensei. Eu sei o que eu faria. Não vou detalhar isso com o senhor.</p></blockquote><blockquote><p><strong>Médico:</strong> A senhora tem em casa o que precisaria para isso?</p><p><strong>Cláudia:</strong> Tenho.</p></blockquote><blockquote><p><strong>Médico:</strong> Nos últimos dias, a senhora fez alguma coisa nessa direção? Chegou a se preparar de alguma forma, mesmo que depois tenha desistido?</p><p><strong>Cláudia:</strong> Semana passada eu deixei tudo pronto. Escrevi umas cartas, separei os documentos, deixei em cima da mesa. Depois eu guardei de novo. Foi na terça.</p></blockquote><blockquote><p><strong>Médico:</strong> A sua irmã sabe o que a senhora está me contando agora?</p><p><strong>Cláudia:</strong> Não. E o senhor não vai contar. Ela veio porque eu disse que era por causa do remédio.</p></blockquote><blockquote><p><strong>Médico:</strong> Eu preciso conversar com a senhora e com a sua irmã sobre deixar a casa mais segura nos próximos dias. A senhora topa que eu chame ela para essa conversa?</p><p><strong>Cláudia:</strong> Não. Isso não. Ela tem a vida dela, já basta o que ela faz por mim.</p></blockquote><blockquote><p><strong>Médico:</strong> Se a senhora sair daqui hoje e esses pensamentos apertarem de novo, o que a senhora faria?</p><p><strong>Cláudia:</strong> Não sei o que o senhor quer que eu responda. Eu vim aqui hoje. Já é alguma coisa.</p></blockquote><h3>Exame do estado mental</h3><p>Vigil, orientada em tempo e espaço. Contato reduzido, sustenta pouco o olhar, responde com frases curtas e não amplia espontaneamente. Humor deprimido, afeto pouco modulável, não se emociona ao longo da entrevista. Discurso organizado, ritmo levemente lentificado, sem fuga de ideias. Pensamento sem alteração de forma. Conteúdo com desesperança marcada quanto ao futuro próximo e sentimento de ser um peso para a família. Sem delírios. Sem alucinações. Sensopercepção sem alterações. Atenção e memória preservadas para o exame. Sem agitação psicomotora. Juízo crítico parcialmente preservado, reconhece que está mal, mas não aceita que a situação exija qualquer medida além da consulta. Sem sinais de intoxicação. Recusa-se a detalhar parte do que é perguntado e recusa a participação da irmã.</p><h3>Contexto</h3><p>Mora sozinha em apartamento alugado desde a separação, há dois anos. A irmã mora a três quarteirões e tem chave do apartamento. Não tem filhos. Trabalha em duas escolas, uma municipal pela manhã e uma privada à tarde, e está no período de fechamento de notas do bimestre. Mantém contato semanal com a mãe, que mora em outra cidade. Perdeu contato com a maior parte das amizades no último ano. Não identifica um precipitante único para a piora das últimas três semanas, mas menciona sobrecarga de trabalho e o aniversário da separação. Na sala de espera está a irmã, que se apresentou à equipe como disponível para o que for preciso e que acredita estar acompanhando a paciente em uma consulta de revisão de medicação.</p><h3>História clínica</h3><p>Episódio depressivo maior diagnosticado há sete meses. Primeiro episódio identificado, embora descreva um período de sintomas semelhantes, mais leve e sem tratamento, aos 24 anos. Em uso de sertralina 50 mg ao dia há seis semanas, com boa adesão e sem efeitos adversos relatados. Nunca fez psicoterapia. Sem tentativa de suicídio prévia. Sem autolesão. Sem internação psiquiátrica prévia. Sem diagnóstico prévio de transtorno bipolar, transtorno psicótico ou transtorno por uso de substâncias. Não usa álcool regularmente, refere consumo social esporádico, última vez há cerca de um mês. Não usa tabaco nem outras substâncias. Sem comorbidade clínica conhecida, sem dor crônica. Sem mudança recente de medicação, dose ou prescritor. Sem internação clínica nos últimos doze meses. Sem história familiar conhecida de suicídio.</p><h3>Informações que o registro não contém</h3><div class="ausencia"><p>O atendimento não explorou, e o dossiê não informa:</p><ul><li>se há armas de fogo na residência ou no entorno imediato;</li><li>quais medicamentos existem em casa, dela ou de terceiros, e quem os guarda;</li><li>se houve mudança recente no padrão de sono nas últimas 48 horas;</li><li>se ela dirige, e se houve alteração no comportamento ao volante;</li><li>se já houve tentativa de suicídio ou morte por suicídio na família;</li><li>o que exatamente foi dito à irmã para que ela viesse à consulta;</li><li>se ela tem consulta ambulatorial já marcada e para quando.</li></ul></div><a class="voltar" href="#casos">Voltar aos seis casos</a></section><section class="caso" id="caso-3"><div class="id">Grupo 3</div><h2>Caso 3. Transtorno bipolar, episódio misto</h2><p class="par">Par 2, dossiê A. Leia o caso inteiro antes de abrir a folha de trabalho.</p><h3>Situação inicial</h3><p>Diego, 29 anos, técnico em edificações, chega ao pronto atendimento às 21h20 trazido pela esposa, que ligou para a unidade antes de vir. Ele entra andando rápido, senta, levanta, volta a sentar. Diz que veio porque a esposa insistiu e que &quot;não precisava disso&quot;. Tem diagnóstico de transtorno bipolar tipo I firmado há seis anos. A esposa relata que há cerca de três semanas ele &quot;mudou de marcha&quot;: passou a dormir muito pouco, a falar mais alto, a discutir por coisas pequenas e a tomar decisões de repente. Há quatro dias pediu demissão por telefone, no meio da madrugada, sem conversar com ninguém. Ele descreve a si mesmo como estando ao mesmo tempo &quot;elétrico e no fundo do poço&quot;. Diz que tem muita energia, que não consegue parar, e que ao mesmo tempo tudo lhe parece sem sentido. Refere que a ideia de morrer aparece e desaparece várias vezes ao dia, às vezes por minutos, e que nessas horas ela vem &quot;com força, de uma vez&quot;. Nega tristeza contínua. Não está intoxicado. A unidade tem retaguarda ambulatorial e leito de observação.</p><h3>Trechos literais da entrevista</h3><blockquote><p><strong>Médico:</strong> O senhor consegue me descrever como estão os últimos dias?</p><p><strong>Diego:</strong> Rápidos. Muito rápidos. Eu durmo duas horas e acordo pronto. Aí no meio do dia desaba tudo. Não é tristeza, doutor, é raiva. É uma coisa por dentro que não para.</p></blockquote><blockquote><p><strong>Médico:</strong> E o pensamento de morrer, como ele aparece?</p><p><strong>Diego:</strong> Ele vem e vai. Hoje veio umas cinco vezes. Quando vem, vem inteiro. Depois passa e eu acho graça de ter pensado.</p></blockquote><blockquote><p><strong>Médico:</strong> Quando vem inteiro, o senhor chega a pensar em fazer alguma coisa?</p><p><strong>Diego:</strong> Na hora eu faria. É isso que me assusta. Não é que eu planejei. É que se vier de novo do jeito que veio ontem à noite, eu não sei se eu espero passar.</p></blockquote><blockquote><p><strong>Médico:</strong> Ontem à noite o que aconteceu?</p><p><strong>Diego:</strong> Eu levantei, saí de casa e fiquei andando até umas quatro da manhã. Não sei explicar. Eu estava com raiva de tudo.</p></blockquote><blockquote><p><strong>Esposa:</strong> Ele saiu sem falar nada. Eu acordei e a porta estava aberta.</p></blockquote><blockquote><p><strong>Médico:</strong> O senhor está tomando alguma medicação hoje?</p><p><strong>Diego:</strong> Estou tomando o que a psiquiatra do convênio passou, um antidepressivo, faz uns quatro meses. O lítio eu parei, porque estava me deixando lento e eu estava bem.</p></blockquote><blockquote><p><strong>Médico:</strong> Parou de uma vez ou aos poucos?</p><p><strong>Diego:</strong> De uma vez. Eu estava bem, doutor.</p></blockquote><blockquote><p><strong>Médico:</strong> O senhor consegue combinar comigo de ficar em casa com alguém junto nos próximos dias?</p><p><strong>Diego:</strong> Consigo combinar. Agora, se eu vou cumprir, eu não sei. Do jeito que está, eu não confio em mim de noite.</p></blockquote><h3>Exame do estado mental</h3><p>Vigil, orientado. Inquieto, levanta-se duas vezes durante a consulta, movimenta as mãos continuamente. Contato estabelecido, por vezes invasivo, interrompe o examinador. Humor disfórico, irritável, com labilidade evidente: passa de riso a irritação em poucos minutos. Afeto intenso e mal modulado. Discurso acelerado, com aumento de volume, pressão para falar, mas ainda interrompível. Pensamento com curso acelerado, sem desagregação. Conteúdo com ideação suicida flutuante, intensa quando presente, sem planejamento estruturado, e com autopercepção de perda de controle. Sem delírios. Sem alucinações. Atenção dispersa, distrai-se com ruídos do corredor. Juízo crítico comprometido quanto à gravidade do quadro e à necessidade de tratamento. Sem sinais de intoxicação. Colabora com a entrevista, embora com dificuldade de permanecer sentado.</p><h3>Contexto</h3><p>Casado há cinco anos, sem filhos. Mora com a esposa, que trabalha em turno comercial e está disponível à noite, mas viaja a trabalho na próxima segunda-feira por três dias. Sem outra pessoa na residência. A mãe mora na mesma cidade e tem boa relação com o casal. Pediu demissão há quatro dias e ainda não comunicou a família ampliada. Dificuldade financeira imediata não referida. A esposa relata que episódios anteriores começaram de forma parecida, com redução de sono e aceleração, e que da última vez ele ficou internado por doze dias. Ela está assustada e pede orientação sobre o que fazer em casa.</p><h3>História clínica</h3><p>Transtorno bipolar tipo I diagnosticado aos 23 anos, após episódio maníaco com internação. Duas internações psiquiátricas prévias, a última há três anos. Em uso de lítio por cinco anos, com boa resposta, suspenso por conta própria há cerca de sete meses. Há quatro meses iniciou antidepressivo isolado, prescrito em consulta de convênio, sem estabilizador associado. Uma tentativa de suicídio aos 24 anos, durante episódio prévio, sem sequelas e sem detalhamento no prontuário disponível. Sem autolesão. Refere uso de álcool social, sem episódios recentes de uso pesado. Nega outras substâncias. Sem comorbidade clínica conhecida. Sem dor crônica. Sono reduzido para cerca de duas horas por noite há três semanas. Sem história familiar conhecida de suicídio, com um tio materno descrito como &quot;nervoso, internado várias vezes&quot;.</p><h3>Informações que o registro não contém</h3><div class="ausencia"><p>O atendimento não explorou, e o dossiê não informa:</p><ul><li>se há armas de fogo na residência ou acesso a elas pelo trabalho;</li><li>quais medicamentos existem em casa e quem os administra;</li><li>se houve uso de álcool ou de outras substâncias nas últimas 48 horas;</li><li>se houve comportamento de risco não suicida nos últimos dias, como direção imprudente ou exposição física;</li><li>o que exatamente ocorreu nas horas em que ele esteve fora de casa na madrugada;</li><li>como terminou a última internação e o que estava combinado no seguimento;</li><li>se existe alguém que possa permanecer com ele na semana em que a esposa viaja.</li></ul></div><a class="voltar" href="#casos">Voltar aos seis casos</a></section><section class="caso" id="caso-4"><div class="id">Grupo 4</div><h2>Caso 4. Transtorno de personalidade borderline</h2><p class="par">Par 2, dossiê B. Leia o caso inteiro antes de abrir a folha de trabalho.</p><h3>Situação inicial</h3><p>Letícia, 22 anos, estudante de design e atendente em uma cafeteria, chega ao pronto atendimento às 23h10 trazida pela mãe. É a quarta vez que procura a unidade em doze meses. Há três dias terminou um relacionamento de oito meses. Desde então, descreve &quot;não conseguir ficar dentro do próprio corpo&quot;, oscilação intensa do humor ao longo do dia e sensação de vazio. Ontem à noite produziu lesões superficiais no antebraço esquerdo, sem necessidade de sutura, que ela mesma mostra à equipe. Diz que fez isso &quot;para parar de sentir&quot;. Hoje, durante uma discussão com a mãe, disse que não queria mais viver e que ia acabar com tudo. A mãe, visivelmente cansada, comenta à equipe, no corredor e fora da presença da paciente, que &quot;isso acontece toda vez que ela termina um namoro&quot; e pergunta se não há como interná-la para &quot;resolver de uma vez&quot;. A paciente está lúcida, comunicativa, oscila entre choro e irritação, e diz ao médico que não quer morrer, que quer que a dor pare. Não está intoxicada. A consulta ocorre com a mãe na sala de espera.</p><h3>Trechos literais da entrevista</h3><blockquote><p><strong>Médico:</strong> Você disse hoje que não queria mais viver. Esse pensamento está agora?</p><p><strong>Letícia:</strong> Agora não sei. Depende da hora. De manhã eu queria. Agora eu queria só sumir um pouco.</p></blockquote><blockquote><p><strong>Médico:</strong> Quando você fez isso no braço ontem, o que você queria que acontecesse?</p><p><strong>Letícia:</strong> Queria parar de sentir aquilo. Não era para morrer. Isso me acalma, e eu sei que é ruim, mas me acalma.</p></blockquote><blockquote><p><strong>Médico:</strong> E em algum momento desses três dias você quis morrer de verdade?</p><p><strong>Letícia:</strong> Quis. Anteontem de madrugada eu quis muito. Passou. Mas naquela hora eu quis.</p></blockquote><blockquote><p><strong>Médico:</strong> Você chegou a pensar em como, ou a fazer alguma coisa naquela hora?</p><p><strong>Letícia:</strong> Eu fiquei olhando para o que tinha no armário. Fiquei parada olhando. Depois eu liguei para a minha amiga e passou.</p></blockquote><blockquote><p><strong>Médico:</strong> Você tem alguém com quem consegue falar quando aperta assim?</p><p><strong>Letícia:</strong> Tinha ele. Agora tem a Bruna, mas ela está de mudança. Minha mãe eu não consigo. Ela acha que eu faço isso para chamar atenção.</p></blockquote><blockquote><p><strong>Mãe (no corredor, fora da presença da paciente):</strong> Doutor, com todo respeito, ela faz isso toda vez. Eu já não sei mais o que fazer. Não dá para interná-la?</p></blockquote><blockquote><p><strong>Médico:</strong> Se você for para casa hoje, como vai ser essa noite?</p><p><strong>Letícia:</strong> Vai ser ruim. Mas eu não quero ficar aqui. Eu só queria que alguém conversasse comigo amanhã, não daqui a dois meses.</p></blockquote><h3>Exame do estado mental</h3><p>Vigil, orientada. Contato fácil, por vezes intenso, busca aproximação e em seguida se retrai. Humor lábil, com variação clara dentro da própria consulta, do choro à irritação e ao riso. Afeto intenso e reativo ao conteúdo. Discurso organizado, fluente, sem aceleração. Pensamento sem alteração de forma. Conteúdo com ideação suicida flutuante, ambivalente, associada a sentimento de abandono e vazio, sem plano estruturado no momento. Sem delírios. Sem alucinações. Atenção preservada. Juízo crítico preservado quanto à natureza dos sintomas e à necessidade de ajuda. Sem sinais de intoxicação. Lesões superficiais recentes em antebraço esquerdo, sem sangramento ativo, sem indicação de sutura. Colabora com a entrevista.</p><h3>Contexto</h3><p>Mora com a mãe e um irmão de 16 anos. O pai mora em outro estado, contato esporádico. Cursa o terceiro ano da faculdade e trabalha meio período. Término do relacionamento há três dias, descrito como abandono. A amiga mais próxima está se mudando de cidade nesta semana. A relação com a mãe é descrita por ambas como desgastada, com discussões frequentes e sensação, na mãe, de esgotamento e de repetição. A mãe trabalha em turno integral e diz não conseguir &quot;vigiar&quot; a filha. Na unidade, a paciente já foi atendida três vezes no último ano por quadros semelhantes, com alta no mesmo dia e encaminhamento ambulatorial, sem que o seguimento tenha se estabelecido.</p><h3>História clínica</h3><p>Transtorno de personalidade borderline diagnosticado há dois anos em serviço ambulatorial. Fez psicoterapia por cerca de oito meses, com interrupção há um ano por dificuldade de agenda e custo. Sem seguimento psiquiátrico regular atualmente. Em uso irregular de fluoxetina 20 mg ao dia, prescrita há um ano, que toma &quot;quando lembra&quot;. Autolesão recorrente desde os 17 anos, com períodos de remissão. Uma tentativa de suicídio aos 19 anos, com atendimento hospitalar e alta no dia seguinte, sem internação. Sem internação psiquiátrica prévia. Nega uso regular de álcool, refere episódios de uso em contexto social, o último há duas semanas. Nega outras substâncias. Sem comorbidade clínica. Sono reduzido nos últimos três dias. Sem história familiar conhecida de suicídio.</p><h3>Informações que o registro não contém</h3><div class="ausencia"><p>O atendimento não explorou, e o dossiê não informa:</p><ul><li>o que exatamente estava acessível no armário e se é possível combinar restrição;</li><li>se há armas de fogo na residência;</li><li>qual foi o desfecho concreto das três passagens anteriores pela unidade e o que foi tentado no seguimento;</li><li>se houve uso de álcool nos três dias desde o término;</li><li>se o irmão de 16 anos está exposto à situação e como;</li><li>se a paciente tem vínculo com algum serviço que possa recebê-la em 24 a 48 horas;</li><li>o que a mãe consegue e o que não consegue sustentar nos próximos dias.</li></ul></div><a class="voltar" href="#casos">Voltar aos seis casos</a></section><section class="caso" id="caso-5"><div class="id">Grupo 5</div><h2>Caso 5. Intoxicação aguda por álcool</h2><p class="par">Par 3, dossiê A. Leia o caso inteiro antes de abrir a folha de trabalho.</p><h3>Situação inicial</h3><p>Sérgio, 45 anos, pintor autônomo, é trazido ao pronto atendimento às 22h40 pelo irmão e por um vizinho, depois de uma discussão em casa. Segundo o irmão, durante a discussão ele disse em voz alta, na frente da família, que ia acabar com aquilo naquela noite e saiu de casa batendo a porta. Foi encontrado pelo vizinho na rua, cerca de vinte minutos depois, sentado na calçada. Chega com marcha instável, hálito etílico, fala arrastada e sonolência oscilante. Colabora por períodos e em outros se recusa a responder. Diz ao médico que não falou nada disso, que estava bravo e que quer ir embora. Minutos depois, chorando, diz que não vê mais sentido em nada. Em outro momento afirma que já está bem e pede alta. Sinais vitais estáveis, sem sinais de trauma. Não há relato de ingestão de outras substâncias. A unidade tem leito de observação e retaguarda ambulatorial.</p><h3>Trechos literais da entrevista</h3><blockquote><p><strong>Médico:</strong> O seu irmão contou que o senhor disse que ia acabar com tudo hoje. O senhor se lembra disso?</p><p><strong>Sérgio:</strong> Eu não falei nada. Estava bravo. Todo mundo fala besteira quando está bravo.</p></blockquote><blockquote><p><strong>Médico:</strong> E como o senhor está agora?</p><p><strong>Sérgio:</strong> Agora estou bem. Quero ir para casa.</p></blockquote><p class="rubrica">Quinze minutos depois, durante a reavaliação.</p><blockquote><p><strong>Sérgio:</strong> Doutor, eu não aguento mais. Desde que a Rose saiu não tem mais razão de nada. Eu queria dormir e não acordar mais.</p></blockquote><blockquote><p><strong>Médico:</strong> O senhor pensou em fazer alguma coisa hoje?</p><p><strong>Sérgio:</strong> Hoje eu pensei. Mas eu bebi, doutor. Amanhã eu não penso.</p></blockquote><blockquote><p><strong>Irmão:</strong> Não é a primeira vez que ele fala isso bebendo. Mas hoje ele falou de um jeito diferente. Ele nunca tinha saído de casa daquele jeito.</p></blockquote><blockquote><p><strong>Médico:</strong> O senhor está tomando alguma medicação?</p><p><strong>Sérgio:</strong> Nada. Só o remédio de pressão, quando eu lembro.</p></blockquote><blockquote><p><strong>Médico:</strong> Se o senhor for para casa hoje, quem fica com o senhor?</p><p><strong>Sérgio:</strong> Meu irmão. Ele mora do lado.</p></blockquote><blockquote><p><strong>Irmão:</strong> Eu fico. Mas eu também bebi hoje, doutor. E amanhã às cinco eu saio para trabalhar.</p></blockquote><h3>Exame do estado mental</h3><p>Sonolento, desperta ao chamado verbal, mantém-se acordado por períodos curtos. Orientado em pessoa, parcialmente em tempo. Contato oscilante, alterna colaboração e recusa. Humor variável dentro do mesmo atendimento, com irritabilidade seguida de choro e depois de aparente indiferença. Afeto pouco modulado e congruente com o estado de intoxicação. Discurso arrastado, com perseveração de temas. Pensamento com curso lentificado, sem desagregação. Conteúdo com verbalização de desejo de morrer, relatada e depois negada dentro do mesmo atendimento. Sem delírios evidentes. Sem alucinações referidas. Atenção flutuante. Juízo crítico comprometido pelo estado atual. Marcha instável, hálito etílico, sem sinais de trauma craniano. Sem agitação psicomotora no momento.</p><h3>Contexto</h3><p>Separado há cinco meses. Mora sozinho desde então, em casa alugada nos fundos do terreno do irmão. Dois filhos adolescentes que moram com a mãe, em outra cidade, com contato quinzenal. Trabalha por conta própria, com redução importante de serviço nos últimos meses. O irmão mora ao lado, tem relação próxima, e é quem costuma socorrê-lo. O vizinho que o trouxe relata que ele tem bebido diariamente nas últimas semanas, sozinho. Não há outra pessoa disponível na residência à noite. A discussão de hoje foi com o irmão, por causa de dinheiro.</p><h3>História clínica</h3><p>Uso de álcool descrito pelo irmão como diário nos últimos meses, com aumento após a separação. Sem tratamento prévio para uso de álcool. Nunca foi atendido em serviço de saúde mental. Sem diagnóstico psiquiátrico formal. Sem tentativa de suicídio prévia conhecida. Sem autolesão conhecida. Hipertensão arterial em uso irregular de anti hipertensivo. Sem outras comorbidades conhecidas. Nega uso de outras substâncias. Sem internação prévia. Sem história familiar conhecida de suicídio. Não há prontuário prévio na unidade.</p><h3>Informações que o registro não contém</h3><div class="ausencia"><p>O atendimento não explorou, e o dossiê não informa:</p><ul><li>se há armas de fogo na residência, o que é pergunta obrigatória neste contexto;</li><li>o que exatamente foi dito durante a discussão e diante de quem;</li><li>qual o padrão de uso de álcool nos últimos dias e quando foi a última dose;</li><li>se houve episódios anteriores de verbalização suicida em intoxicação e como terminaram;</li><li>se ele já procurou ajuda alguma vez e o que aconteceu;</li><li>se os filhos ou a ex-companheira têm alguma informação relevante;</li><li>como ele se apresenta sóbrio, já que nenhuma avaliação prévia existe.</li></ul></div><a class="voltar" href="#casos">Voltar aos seis casos</a></section><section class="caso" id="caso-6"><div class="id">Grupo 6</div><h2>Caso 6. Quadro psicótico</h2><p class="par">Par 3, dossiê B. Leia o caso inteiro antes de abrir a folha de trabalho.</p><h3>Situação inicial</h3><p>André, 24 anos, auxiliar de estoque, é levado ao pronto atendimento às 10h30 pela avó, com quem mora. Ela conta que há cerca de dois meses ele mudou: parou de sair, trancou-se no quarto, passou a cobrir a janela com papelão e a desligar o roteador à noite. Nas últimas duas semanas, parou de comer o que ela cozinha, dizendo que &quot;eles&quot; podem ter mexido na comida. Faltou ao trabalho cinco dias seguidos. Hoje de manhã ela o encontrou sentado no chão do quarto, com as mãos nos ouvidos. Ele aceita vir à unidade, mas na sala olha repetidamente para a porta e pergunta se a conversa está sendo gravada. Pergunta ao médico se ele trabalha &quot;com eles&quot;. Quando perguntado diretamente se quer morrer, responde que não. Em seguida diz que talvez seja melhor para todo mundo se ele &quot;sumisse antes que eles cheguem&quot;. Não está intoxicado. A avó tem 78 anos, caminha com dificuldade e é a única pessoa da casa.</p><h3>Trechos literais da entrevista</h3><blockquote><p><strong>Médico:</strong> Você pode me contar o que está acontecendo?</p><p><strong>André:</strong> Depende de quem vai ler isso depois. Eles já sabem onde eu estou. O senhor trabalha com eles?</p></blockquote><blockquote><p><strong>Médico:</strong> Eu trabalho aqui na unidade. Estou aqui para entender o que está te assustando.</p><p><strong>André:</strong> Eles entraram na minha conta, eles estão no prédio da frente. À noite piora.</p></blockquote><blockquote><p><strong>Médico:</strong> Você tem escutado alguma coisa que outras pessoas não escutam?</p><p><strong>André:</strong> Eu escuto. É uma voz de homem. Ela fala comigo à noite, e às vezes de dia.</p></blockquote><blockquote><p><strong>Médico:</strong> O que ela fala?</p><p><strong>André:</strong> Ela manda eu fazer coisas. Eu não vou repetir. Se eu repetir fica pior.</p></blockquote><blockquote><p><strong>Médico:</strong> Ela já mandou você se machucar ou fazer alguma coisa contra você?</p><p><strong>André:</strong> Ela manda eu resolver. Eu não quero. Mas ela não para.</p></blockquote><blockquote><p><strong>Médico:</strong> Você quer morrer?</p><p><strong>André:</strong> Não. Eu não quero morrer. Só acho que se eu sumisse antes deles chegarem era melhor para todo mundo, principalmente para a minha avó.</p></blockquote><blockquote><p><strong>Médico:</strong> Se você for para casa hoje, você consegue combinar comigo de avisar alguém quando a voz apertar?</p><p><strong>André:</strong> Não sei se eu consigo falar com a minha avó sobre isso. Ela ia contar para alguém. E não adianta ligar para ninguém, a linha não é segura.</p></blockquote><h3>Exame do estado mental</h3><p>Vigil, orientado em pessoa e espaço, impreciso quanto a datas recentes. Contato difícil, desconfiado, olha repetidamente para a porta e para o teto. Higiene comprometida, roupas sujas. Humor apreensivo, afeto com embotamento parcial e episódios de medo intenso. Discurso pouco espontâneo, responde com cautela, seleciona o que conta. Pensamento com curso preservado, sem desagregação franca. Conteúdo com delírio persecutório sistematizado, ideia de referência e ideia de que o desaparecimento dele protegeria a avó. Sensopercepção com alucinação auditiva em segunda pessoa, de conteúdo imperativo, que ele se recusa a detalhar. Nega ideação suicida quando perguntado diretamente. Atenção reduzida, distrai-se com estímulos externos. Juízo crítico ausente quanto à natureza dos sintomas. Sem agitação psicomotora no momento. Sem sinais de intoxicação.</p><h3>Contexto</h3><p>Mora com a avó de 78 anos, viúva, que tem limitação de marcha e faz uso de várias medicações. É o único cuidador dela e também a única pessoa que o acompanha. Os pais moram em outro estado, contato raro. Sem amigos próximos referidos. Trabalhava em estoque de supermercado há dois anos, com faltas nas últimas duas semanas e risco de demissão. Nunca procurou serviço de saúde mental. A avó não sabe a quem recorrer, não dirige e depende de transporte de vizinhos. A casa tem medicações da avó guardadas no armário da cozinha, sem controle de quem as acessa.</p><h3>História clínica</h3><p>Sem diagnóstico psiquiátrico prévio. Sem tratamento psiquiátrico prévio. Sem uso de medicação psicotrópica. Sem tentativa de suicídio prévia conhecida. Sem autolesão conhecida. Nega uso de álcool. A avó relata que ele &quot;fumava aquele cigarro&quot; na adolescência, sem saber precisar tipo, quantidade ou período, e acredita que parou. Sem comorbidade clínica conhecida. Sem internação prévia de qualquer natureza. Um tio paterno descrito pela avó como &quot;doente dos nervos&quot;, sem diagnóstico conhecido. Sem história familiar conhecida de suicídio.</p><h3>Informações que o registro não contém</h3><div class="ausencia"><p>O atendimento não explorou, e o dossiê não informa:</p><ul><li>o conteúdo exato da voz imperativa, que ele se recusou a detalhar e que não foi retomado depois;</li><li>se há armas de fogo na residência ou acesso a elas;</li><li>quais medicações da avó estão guardadas em casa e se é possível organizar controle;</li><li>se houve uso recente de substâncias, incluindo canabinoides sintéticos ou estimulantes;</li><li>se houve comportamento perigoso decorrente do delírio nas últimas semanas, como deixar de comer ou de beber água;</li><li>há quanto tempo exatamente ele não dorme adequadamente;</li><li>se existe qualquer outra pessoa na rede capaz de permanecer com ele.</li></ul></div><a class="voltar" href="#casos">Voltar aos seis casos</a></section>
+
+  <section class="folha" id="folha"><h2>Folha de trabalho</h2><div class="regra"><b>Regra principal.</b> Nenhuma decis&atilde;o vale apenas por diagn&oacute;stico, por fator de risco ou por resultado de escala. O que voc&ecirc;s escrevem aqui &eacute; exatamente o que voc&ecirc;s v&atilde;o defender.</div><div class="tese"><div class="rotulo">A pergunta que fecha toda avalia&ccedil;&atilde;o</div><p class="refrao">&Eacute; poss&iacute;vel construir seguran&ccedil;a suficiente fora de um ambiente protegido neste momento?</p></div><div class="identifica"><label>Grupo<input id="id-grupo" data-ident data-rotulo="Grupo" type="text" inputmode="numeric" placeholder="1 a 6"></label><label>Caso<input id="id-caso" data-ident data-rotulo="Caso" type="text" placeholder="numero do dossie"></label><label>Integrantes<input id="id-nomes" data-ident data-rotulo="Integrantes" type="text" placeholder="nomes"></label></div><div class="campo"><div class="cab"><span class="num">1</span><span class="nome">Suicidalidade atual</span><span class="limite">at&eacute; 4 linhas</span></div><p class="dica">O que existe agora, com que frequência, quanto dura, se é possível afastar, se há intenção, plano, preparação e acesso. Descrever, não classificar.</p><textarea id="campo-1" data-campo data-linhas="4" data-rotulo="Campo 1. Suicidalidade atual" rows="4" placeholder="escreva aqui"></textarea><div class="contador" id="campo-1-contador"></div></div><div class="campo"><div class="cab"><span class="num">2</span><span class="nome">Modificadores relevantes agora</span><span class="limite">at&eacute; 4 linhas</span></div><p class="dica">O que mudou nas últimas horas e nos últimos dias, e o que nesse paciente eleva ou reduz o risco neste momento. Nomear apenas os que mudam a conduta de vocês.</p><textarea id="campo-2" data-campo data-linhas="4" data-rotulo="Campo 2. Modificadores relevantes agora" rows="4" placeholder="escreva aqui"></textarea><div class="contador" id="campo-2-contador"></div></div><div class="campo"><div class="cab"><span class="num">3</span><span class="nome">Segurança e suporte disponíveis</span><span class="limite">at&eacute; 3 linhas</span></div><p class="dica">Quem está disponível, o que essa pessoa consegue sustentar de fato, e o que é possível restringir de acesso hoje.</p><textarea id="campo-3" data-campo data-linhas="3" data-rotulo="Campo 3. Segurança e suporte disponíveis" rows="3" placeholder="escreva aqui"></textarea><div class="contador" id="campo-3-contador"></div></div><div class="campo"><div class="cab"><span class="num">4</span><span class="nome">Conduta imediata</span><span class="limite">at&eacute; 5 linhas</span></div><p class="dica">O que vocês fazem nos próximos trinta minutos e nas próximas horas, incluindo a decisão sobre o ambiente e quem participa dela.</p><textarea id="campo-4" data-campo data-linhas="5" data-rotulo="Campo 4. Conduta imediata" rows="5" placeholder="escreva aqui"></textarea><div class="contador" id="campo-4-contador"></div></div><div class="campo"><div class="cab"><span class="num">5</span><span class="nome">Continuidade do cuidado</span><span class="limite">at&eacute; 4 linhas</span></div><p class="dica">Data, local, responsável, via de contato e o que o paciente faz se piorar. A expressão retorno se piorar não conta como resposta.</p><textarea id="campo-5" data-campo data-linhas="4" data-rotulo="Campo 5. Continuidade do cuidado" rows="4" placeholder="escreva aqui"></textarea><div class="contador" id="campo-5-contador"></div></div><div class="campo"><div class="cab"><span class="num">6</span><span class="nome">Que informação ainda falta</span><span class="limite">at&eacute; 3 linhas</span></div><p class="dica">Apenas as ausências que mudariam a conduta de vocês, não a lista de tudo o que não foi perguntado.</p><textarea id="campo-6" data-campo data-linhas="3" data-rotulo="Campo 6. Que informação ainda falta" rows="3" placeholder="escreva aqui"></textarea><div class="contador" id="campo-6-contador"></div></div><div class="campo"><div class="cab"><span class="num">7</span><span class="nome">Qual conclusão seria tentadora, mas os dados não permitem</span><span class="limite">at&eacute; 2 linhas</span></div><p class="dica">A inferência que o caso convida a fazer e que vocês recusaram, e por quê.</p><textarea id="campo-7" data-campo data-linhas="2" data-rotulo="Campo 7. Qual conclusão seria tentadora, mas os dados não permitem" rows="2" placeholder="escreva aqui"></textarea><div class="contador" id="campo-7-contador"></div></div><div class="acoes"><button id="copiar" type="button">Copiar a folha</button><button id="baixar" type="button" class="sec">Baixar como texto</button><button id="limpar" type="button" class="risco">Limpar</button></div><p class="recado" id="recado"></p><div class="defesa"><h3>Defesa, at&eacute; 4 minutos</h3><p>Proibido apresentar o caso. A turma j&aacute; leu todos.</p><p>S&iacute;ntese do problema, de 30 a 45 segundos. O que modifica a preocupa&ccedil;&atilde;o, 60 segundos. Conduta, 60 segundos. Seguran&ccedil;a e continuidade, de 30 a 45 segundos. O que restar, em limita&ccedil;&atilde;o e informa&ccedil;&atilde;o faltante.</p><p><strong>Pergunta da defesa:</strong> qual &eacute; a formula&ccedil;&atilde;o de voc&ecirc;s e o que fariam agora?</p></div><p style="font-size:14px;color:var(--grafite);margin-top:16px">O que voc&ecirc;s escrevem fica guardado apenas neste aparelho e neste navegador. Nada &eacute; enviado a lugar nenhum. Use o bot&atilde;o de copiar ou de baixar para entregar.</p></section>
+
+</div>
+
+<footer class="rodape"><div class="wrap">
+  <b>ATP Risco de suic&iacute;dio: avalia&ccedil;&atilde;o e conduta</b> &middot;
+  M&oacute;dulo E3M40, Funcionalidade III &middot; Medicina, Centro Universit&aacute;rio
+  Campo Real &middot; 2026. Material did&aacute;tico de uso interno. Os casos s&atilde;o
+  fict&iacute;cios e foram escritos para esta atividade.
+</div></footer>
+
+<script>
+(function(){
+  var CHAVE='atp-e3m40-risco-suicidio-v1';
+  var campos=[].slice.call(document.querySelectorAll('[data-campo]'));
+  var ident=[].slice.call(document.querySelectorAll('[data-ident]'));
+  var recado=document.getElementById('recado');
+  function guarda(){
+    try{
+      var d={};
+      campos.concat(ident).forEach(function(e){d[e.id]=e.value;});
+      localStorage.setItem(CHAVE,JSON.stringify(d));
+    }catch(e){}
+  }
+  function carrega(){
+    try{
+      var bruto=localStorage.getItem(CHAVE); if(!bruto)return;
+      var d=JSON.parse(bruto);
+      campos.concat(ident).forEach(function(e){ if(typeof d[e.id]==='string') e.value=d[e.id]; });
+    }catch(e){}
+  }
+  function conta(e){
+    var alvo=document.getElementById(e.id+'-contador');
+    if(!alvo)return;
+    var max=parseInt(e.getAttribute('data-linhas'),10);
+    var linhas=e.value.split('\n').length;
+    var chars=e.value.trim().length;
+    var teto=max*78;
+    alvo.textContent=linhas+' de '+max+' linhas, '+chars+' caracteres';
+    var estourou=(linhas>max)||(chars>teto);
+    alvo.className='contador'+(estourou?' excedeu':'');
+  }
+  campos.forEach(function(e){
+    e.addEventListener('input',function(){conta(e);guarda();});
+  });
+  ident.forEach(function(e){e.addEventListener('input',guarda);});
+  carrega();
+  campos.forEach(conta);
+
+  function texto(){
+    var l=[];
+    l.push('ATP Risco de Suicidio | E3M40 | Medicina | Campo Real');
+    ident.forEach(function(e){ l.push(e.getAttribute('data-rotulo')+': '+e.value); });
+    l.push('');
+    campos.forEach(function(e){
+      l.push(e.getAttribute('data-rotulo'));
+      l.push(e.value.trim()||'(em branco)');
+      l.push('');
+    });
+    return l.join('\n');
+  }
+  function fala(msg){ recado.textContent=msg; setTimeout(function(){recado.textContent='';},3500); }
+
+  document.getElementById('copiar').addEventListener('click',function(){
+    var t=texto();
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){fala('Folha copiada para a area de transferencia.');},
+        function(){fala('Nao foi possivel copiar. Use o botao de baixar.');});
+    } else { fala('Nao foi possivel copiar. Use o botao de baixar.'); }
+  });
+  document.getElementById('baixar').addEventListener('click',function(){
+    var grupo=(document.getElementById('id-grupo').value||'grupo').replace(/[^0-9A-Za-z]/g,'');
+    var blob=new Blob([texto()],{type:'text/plain;charset=utf-8'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='folha-'+(grupo||'grupo')+'.txt';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
+    fala('Arquivo gerado.');
+  });
+  document.getElementById('limpar').addEventListener('click',function(){
+    if(!confirm('Apagar tudo o que foi escrito nesta folha?'))return;
+    campos.concat(ident).forEach(function(e){e.value='';});
+    try{localStorage.removeItem(CHAVE);}catch(e){}
+    campos.forEach(conta); fala('Folha limpa.');
+  });
+})();
+</script>
+</body></html>
